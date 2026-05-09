@@ -1,66 +1,74 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { useNavigate, Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import { LAB_UPDATES } from '../data';
+import { PaperPlane, ScribbleLine } from './Doodles';
 
 export const LabTimeline = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="pt-40 pb-32 bg-inverse text-white">
-      <div className="max-w-[1120px] mx-auto px-6">
-        <div className="mb-12 flex justify-center">
-          <div className="inline-flex items-center gap-4 px-6 py-1.5 rounded-full border border-white/10 bg-white/5">
-            <span className="mono-label text-[10px] text-tx-quaternary">─── tranfu-lab ─── 3 active experiments ─── last commit 2h ago ───</span>
+    <section className="relative py-24 md:py-30">
+      <div className="section-shell">
+        <div className="relative overflow-hidden rounded-[40px] border border-border-default bg-[linear-gradient(180deg,rgba(255,253,248,0.86),rgba(239,229,214,0.68))] p-6 shadow-workshop md:p-8">
+          <PaperPlane className="absolute right-8 top-8 text-accent-brand/45" />
+          <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
+            <div className="max-w-[650px]">
+              <span className="section-kicker mb-4">Tranfu Lab Feed</span>
+              <h2 className="text-[36px] leading-[1.1] md:text-[50px] font-semibold">不是静态案例库，而是一条正在发生的实验流。</h2>
+            </div>
+            <div className="max-w-[360px]">
+              <p className="mb-4 text-[15px] text-tx-tertiary">
+                我们把最近的推进、修改和犹豫都公开出来，让你看到产品是怎么一点点长出来的。
+              </p>
+              <Link to="/lab" className="inline-flex items-center gap-2 text-sm font-semibold text-accent-brand">
+                进入全量实验室
+                <ArrowRight size={16} />
+              </Link>
+            </div>
           </div>
-        </div>
 
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-12">
-          <div className="max-w-2xl">
-            <h2 className="text-[32px] serif-heading font-bold text-white mb-4">正在发生</h2>
-            <p className="text-tx-quaternary text-lg leading-relaxed">
-              这些实验可能成功，可能失败，但一定真实。我们记录下原子级的探索、甚至是那些被放弃的代码片段。
-            </p>
+          <div className="mb-8 flex items-center gap-4 rounded-full border border-border-subtle bg-surface/72 px-4 py-3 text-[11px] text-tx-quaternary mono-label uppercase">
+            <span>3 active experiments</span>
+            <span className="h-1 w-1 rounded-full bg-tx-faint" />
+            <span>last commit 2h ago</span>
+            <ScribbleLine className="ml-auto hidden w-20 text-accent-orange-strong/45 md:block" />
           </div>
-          <Link 
-            to="/lab" 
-            className="text-sm font-medium text-tx-tertiary hover:text-white transition-colors underline underline-offset-8 decoration-white/10"
-          >
-            进入全量实验室 →
-          </Link>
-        </div>
 
-        <div className="border-t border-white/10">
-          {LAB_UPDATES.slice(0, 5).map((update, idx) => (
-            <motion.div 
-              key={update.project + idx}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.05 }}
-              onClick={() => navigate(update.labId ? `/lab/${update.labId}` : '/lab')}
-              className="group cursor-pointer flex flex-col md:flex-row gap-6 md:gap-12 py-8 border-b border-white/10 hover:bg-white/[0.02] transition-all px-4 -mx-4"
-            >
-              <div className="md:w-32 flex-shrink-0 mono-label text-[12px] text-tx-quaternary pt-1 flex items-center gap-2">
-                {idx === 0 && <span className="w-1.5 h-3 bg-accent-practical terminal-cursor" />}
-                [{update.timestamp}]
-              </div>
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-[12px] font-medium text-accent-practical mono-label">
-                    {update.project}
-                  </span>
-                  <span className="w-px h-3 bg-white/10" />
-                  <span className="text-[11px] text-white/40 uppercase tracking-widest mono-label">
-                    {update.status}
-                  </span>
-                </div>
-                <h4 className="text-xl font-medium text-white group-hover:text-accent-practical transition-colors leading-relaxed">
-                  {update.update}
-                </h4>
-              </div>
-            </motion.div>
-          ))}
+          <div className="relative pl-0 md:pl-6">
+            <div className="absolute bottom-0 left-[12px] top-0 hidden w-px bg-border-subtle md:block" />
+            <div className="space-y-4">
+              {LAB_UPDATES.slice(0, 5).map((update, idx) => (
+                <motion.button
+                  type="button"
+                  key={`${update.project}-${idx}`}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.06 }}
+                  onClick={() => navigate(update.labId ? `/lab/${update.labId}` : '/lab')}
+                  className="group relative flex w-full flex-col gap-4 rounded-[28px] border border-border-default bg-surface/84 p-5 text-left transition-all hover:-translate-y-1 hover:shadow-workshop md:flex-row md:items-start md:gap-6"
+                >
+                  <div className="hidden md:block absolute -left-[18px] top-7 h-3 w-3 rounded-full bg-accent-brand" />
+                  <div className="md:w-[110px] md:flex-shrink-0">
+                    <div className="inline-flex rounded-full bg-accent-brand-soft px-3 py-1 text-[10px] font-semibold text-accent-brand mono-label uppercase">
+                      {update.timestamp}
+                    </div>
+                  </div>
+                  <div className="flex-1">
+                    <div className="mb-2 flex flex-wrap items-center gap-2">
+                      <span className="text-sm font-semibold text-tx-primary">{update.project}</span>
+                      <span className="rounded-full bg-accent-green px-2.5 py-1 text-[10px] font-semibold text-accent-green-strong">
+                        {update.status}
+                      </span>
+                    </div>
+                    <p className="text-[15px] text-tx-secondary">{update.update}</p>
+                  </div>
+                </motion.button>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

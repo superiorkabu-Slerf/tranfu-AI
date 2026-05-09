@@ -4,23 +4,24 @@ import { Send, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export const CoBuildPage = () => {
   return (
-    <div className="bg-paper min-h-screen">
-      {/* Header Section */}
-      <section className="pt-24 pb-16 border-b border-border-subtle">
-        <div className="max-w-[1120px] mx-auto px-6">
-          <span className="mono-label text-[12px] text-tx-tertiary uppercase mb-4 block">TRANSFU WORKBENCH / CO-BUILD</span>
-          <h1 className="text-[48px] serif-heading font-bold text-tx-primary mb-6 tracking-tighter">
+    <div className="page-shell">
+      <section className="page-hero">
+        <div className="section-shell">
+          <div className="page-hero-card p-6 md:p-8">
+          <span className="section-kicker mb-5">TRANSFU WORKBENCH / CO-BUILD</span>
+          <h1 className="page-hero-title mb-6">
             没有现成的工具入口？<br />让我们一起构建它。
           </h1>
-          <p className="text-lg text-tx-secondary max-w-2xl leading-relaxed">
+          <p className="page-hero-copy max-w-2xl">
             这里的共建是面向真实场景的深度协作。如果你面临具体的工程痛点，且愿意与我们共同迭代产品或实验，欢迎提交你的需求。
           </p>
+          </div>
         </div>
       </section>
 
       {/* Main Content */}
       <section className="py-24">
-        <div className="max-w-[1120px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div className="section-shell grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Sidebar: Mechanism */}
           <div className="lg:col-span-4 space-y-12">
             <div>
@@ -43,7 +44,7 @@ export const CoBuildPage = () => {
               </ul>
             </div>
 
-            <div className="p-8 bg-surface rounded-radius-card border border-border-subtle">
+            <div className="p-8 bg-surface/80 rounded-[30px] border border-border-default">
               <div className="flex items-center gap-2 mb-4 text-accent-alert uppercase mono-label text-xs font-bold">
                 <AlertCircle size={14} /> 边界说明
               </div>
@@ -59,7 +60,7 @@ export const CoBuildPage = () => {
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="lg:col-span-8 bg-elevated border border-border-subtle rounded-radius-card p-8 md:p-12 shadow-workshop"
+            className="lg:col-span-8 bg-surface/86 border border-border-default rounded-[34px] p-8 md:p-12 shadow-workshop"
           >
             <h2 className="text-[28px] serif-heading font-bold text-tx-primary mb-10">需求描述与沟通</h2>
             
@@ -72,7 +73,7 @@ export const CoBuildPage = () => {
                 <textarea 
                   rows={4}
                   placeholder="请尽可能用真实的业务场景来描述..."
-                  className="w-full bg-surface border border-border-subtle rounded-radius-button p-4 text-sm outline-none focus:border-border-bold transition-all resize-none"
+                  className="soft-input resize-none"
                 />
               </div>
 
@@ -84,7 +85,7 @@ export const CoBuildPage = () => {
                 <textarea 
                   rows={3}
                   placeholder="现在的工具组合或绕路方案..."
-                  className="w-full bg-surface border border-border-subtle rounded-radius-button p-4 text-sm outline-none focus:border-border-bold transition-all resize-none"
+                  className="soft-input resize-none"
                 />
               </div>
 
@@ -96,14 +97,14 @@ export const CoBuildPage = () => {
                 <input 
                   type="text"
                   placeholder="方便我们确认细节并邀请加入共建组..."
-                  className="w-full bg-surface border border-border-subtle rounded-radius-button p-4 text-sm outline-none focus:border-border-bold transition-all"
+                  className="soft-input"
                 />
               </div>
 
               <div className="pt-6">
                 <button 
                   type="button"
-                  className="w-full h-12 flex items-center justify-center gap-3 bg-inverse text-white rounded-radius-button font-bold text-sm hover:bg-black transition-all group"
+                  className="primary-button w-full h-12 gap-3 text-sm group"
                 >
                   提交需求共建
                   <Send size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

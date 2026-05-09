@@ -23,10 +23,11 @@ export const InsightDetailPage = () => {
   const matchedLab = EXPERIMENTS.filter(e => article.relatedLab?.includes(e.id));
 
   return (
-    <div className="bg-paper min-h-screen">
+    <div className="page-shell">
       {/* Editorial Header */}
-      <section className="pt-24 pb-16 border-b border-border-subtle">
-        <div className="max-w-[1120px] mx-auto px-6">
+      <section className="page-hero">
+        <div className="section-shell">
+          <div className="page-hero-card p-6 md:p-8">
           <Link to="/insights" className="inline-flex items-center gap-2 text-xs font-medium text-tx-tertiary hover:text-tx-primary transition-colors mb-8 group">
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
             BACK TO INSIGHTS
@@ -41,28 +42,29 @@ export const InsightDetailPage = () => {
               </div>
             </div>
             
-            <h1 className="text-[48px] serif-heading font-bold text-tx-primary mb-10 tracking-tighter leading-tight">
+            <h1 className="page-hero-title mb-10">
               {article.title}
             </h1>
             
-            <div className="p-8 bg-surface border-l-4 border-accent-brand rounded-r-radius-card">
+            <div className="rounded-[30px] border border-border-default bg-accent-brand-soft/55 p-8">
               <p className="text-sm font-bold text-tx-tertiary uppercase mono-label mb-3">ABSTRACT</p>
               <p className="text-lg text-tx-secondary italic leading-relaxed">
                 “{article.summary}”
               </p>
             </div>
           </div>
+          </div>
         </div>
       </section>
 
       {/* Main Content Area */}
       <section className="py-24">
-        <div className="max-w-[1120px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div className="section-shell grid grid-cols-1 lg:grid-cols-12 gap-16">
           {/* Article Full Body */}
           <div className="lg:col-span-8">
             <div className="prose prose-sm md:prose-base max-w-none text-tx-secondary leading-[1.8] space-y-10">
-              <div className="aspect-video bg-surface rounded-radius-card overflow-hidden mb-12 border border-border-subtle">
-                <img src={article.image} alt="" className="w-full h-full object-cover grayscale opacity-80" />
+              <div className="aspect-video bg-surface rounded-[30px] overflow-hidden mb-12 border border-border-default">
+                <img src={article.image} alt="" className="w-full h-full object-cover" />
               </div>
               
               <p>
@@ -74,7 +76,7 @@ export const InsightDetailPage = () => {
                 当我们尝试构建自动化工作流时，最初的直觉是“尽可能减少人的干预”。但在实际应用中，我们发现完全的自动化往往导致了“黑盒化”的恐惧。通过三轮内部对照实验，我们发现：最有效的 Agent 系统不是全自动的，而是“可观测、可中断、可接管”的。
               </p>
               
-              <div className="p-8 bg-surface rounded-radius-card border border-border-subtle italic">
+              <div className="p-8 bg-surface/84 rounded-[28px] border border-border-default italic">
                 “工程的本质不是追求绝对的效率，而是在效率与可控性之间寻找那个当下最适合的动态平衡点。”
               </div>
               
@@ -129,7 +131,7 @@ export const InsightDetailPage = () => {
               </div>
             </div>
 
-            <div className="p-8 bg-surface rounded-radius-card border border-border-subtle">
+            <div className="p-8 bg-surface/84 rounded-[30px] border border-border-default">
               <h4 className="mono-label text-[10px] text-tx-tertiary uppercase mb-4 tracking-widest">ABOUT JUDGMENT</h4>
               <p className="text-xs text-tx-tertiary leading-relaxed">
                 TRANSFU 的所有资讯内容均首发于我们的内部实践周报。我们不提供二手的行业摘要，只提供基于真实构建的一手判断。
@@ -150,9 +152,9 @@ export const InsightDetailPage = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {INSIGHTS.filter(i => i.id !== Number(id)).slice(0, 2).map(article => (
-              <Link key={article.id} to={`/insights/${article.id}`} className="flex gap-6 items-center p-6 bg-paper border border-border-subtle rounded-radius-card hover:border-border-strong group transition-all">
-                <div className="w-24 h-24 flex-shrink-0 bg-surface rounded-lg overflow-hidden border border-border-subtle">
-                  <img src={article.image} alt="" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
+              <Link key={article.id} to={`/insights/${article.id}`} className="flex gap-6 items-center p-6 bg-paper border border-border-default rounded-[26px] hover:border-border-strong group transition-all">
+                <div className="w-24 h-24 flex-shrink-0 bg-surface rounded-[18px] overflow-hidden border border-border-subtle">
+                  <img src={article.image} alt="" className="w-full h-full object-cover transition-all group-hover:scale-[1.04]" />
                 </div>
                 <div>
                   <span className="mono-label text-[10px] text-tx-tertiary uppercase mb-2 block">{article.category}</span>

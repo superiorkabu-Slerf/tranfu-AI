@@ -23,10 +23,10 @@ export const ProductDetailPage = () => {
   const relatedLab = EXPERIMENTS.filter(e => product.relatedLab?.includes(e.id));
 
   return (
-    <div className="bg-paper min-h-screen">
-      {/* Header Section */}
-      <section className="pt-24 pb-16 border-b border-border-subtle">
-        <div className="max-w-[1120px] mx-auto px-6">
+    <div className="page-shell">
+      <section className="page-hero">
+        <div className="section-shell">
+          <div className="page-hero-card p-6 md:p-8">
           <Link to="/products" className="inline-flex items-center gap-2 text-xs font-medium text-tx-tertiary hover:text-tx-primary transition-colors mb-8 group">
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
             BACK TO PRODUCTS
@@ -42,42 +42,43 @@ export const ProductDetailPage = () => {
                   REV: 2.0.4
                 </span>
               </div>
-              <h1 className="text-[48px] serif-heading font-bold text-tx-primary mb-6 tracking-tighter leading-tight">
+              <h1 className="page-hero-title mb-6">
                 {product.name}
               </h1>
-              <p className="text-xl text-tx-secondary leading-relaxed mb-10">
+              <p className="page-hero-copy mb-10">
                 {product.oneLiner}
               </p>
               <div className="flex flex-wrap gap-4">
-                <button className="h-[48px] px-8 bg-inverse text-white text-sm font-bold rounded-radius-button hover:bg-black transition-all flex items-center gap-2 group">
+                <button className="primary-button h-[48px] px-8 text-sm group">
                   立即体验 <ExternalLink size={16} />
                 </button>
-                <Link to="/cobuild" className="h-[48px] px-8 border border-border-default text-tx-primary text-sm font-bold rounded-radius-button hover:bg-surface transition-all flex items-center gap-2">
+                <Link to="/cobuild" className="secondary-button h-[48px] px-8 text-sm">
                   关于共建 <ArrowUpRight size={16} />
                 </Link>
               </div>
             </div>
-            <div className="aspect-[16/10] bg-surface rounded-radius-card overflow-hidden border border-border-subtle">
-              <img src={product.image} alt={product.name} className="w-full h-full object-cover grayscale brightness-95" />
+            <div className="aspect-[16/10] bg-surface rounded-[30px] overflow-hidden border border-border-default">
+              <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
             </div>
+          </div>
           </div>
         </div>
       </section>
 
       {/* Main Content Info */}
       <section className="py-24">
-        <div className="max-w-[1120px] mx-auto px-6">
+        <div className="section-shell">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-8 bg-surface rounded-radius-card border border-border-subtle hover:border-border-strong transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-paper border border-border-subtle flex items-center justify-center text-accent-brand mb-6">
+            <div className="p-8 bg-surface/84 rounded-[28px] border border-border-default hover:border-border-strong transition-colors">
+              <div className="w-10 h-10 rounded-[14px] bg-paper border border-border-subtle flex items-center justify-center text-accent-brand mb-6">
                 <CheckCircle2 size={20} />
               </div>
               <h3 className="text-lg font-bold text-tx-primary mb-4">适用群体</h3>
               <p className="text-sm text-tx-secondary leading-relaxed">{product.suitability}</p>
             </div>
 
-            <div className="p-8 bg-surface rounded-radius-card border border-border-subtle hover:border-border-strong transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-paper border border-border-subtle flex items-center justify-center text-accent-alert mb-6">
+            <div className="p-8 bg-surface/84 rounded-[28px] border border-border-default hover:border-border-strong transition-colors">
+              <div className="w-10 h-10 rounded-[14px] bg-paper border border-border-subtle flex items-center justify-center text-accent-alert mb-6">
                 <AlertCircle size={20} />
               </div>
               <h3 className="text-lg font-bold text-tx-primary mb-4">解决的核心问题</h3>
@@ -90,8 +91,8 @@ export const ProductDetailPage = () => {
               </ul>
             </div>
 
-            <div className="p-8 bg-surface rounded-radius-card border border-border-subtle hover:border-border-strong transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-paper border border-border-subtle flex items-center justify-center text-accent-practical mb-6">
+            <div className="p-8 bg-surface/84 rounded-[28px] border border-border-default hover:border-border-strong transition-colors">
+              <div className="w-10 h-10 rounded-[14px] bg-paper border border-border-subtle flex items-center justify-center text-accent-practical mb-6">
                 <PlayCircle size={20} />
               </div>
               <h3 className="text-lg font-bold text-tx-primary mb-4">当下的交付结果</h3>
@@ -99,11 +100,11 @@ export const ProductDetailPage = () => {
             </div>
           </div>
 
-          <div className="mt-20 p-12 bg-elevated border border-border-subtle rounded-radius-card">
+          <div className="mt-20 p-12 bg-surface/84 border border-border-default rounded-[32px]">
             <h3 className="text-[24px] serif-heading font-bold text-tx-primary mb-6">构建笔记与边界说明</h3>
             <div className="prose prose-sm max-w-none text-tx-secondary leading-relaxed grid grid-cols-1 md:grid-cols-2 gap-12">
               <p>{product.description}</p>
-              <div className="p-6 bg-paper border border-border-subtle rounded-radius-card italic text-xs text-tx-tertiary">
+              <div className="p-6 bg-paper border border-border-subtle rounded-[24px] italic text-xs text-tx-tertiary">
                 我们正在实验室中推进该项目的 REV: 2.1.0 版本。如果你有更具体的工业场景或定制化需求，建议查看相关的资源或实验日志。
               </div>
             </div>
@@ -112,8 +113,9 @@ export const ProductDetailPage = () => {
       </section>
 
       {/* Linked Assets */}
-      <section className="py-24 bg-surface border-t border-border-subtle">
-        <div className="max-w-[1120px] mx-auto px-6">
+      <section className="py-24">
+        <div className="section-shell">
+          <div className="soft-panel p-6 md:p-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Resources */}
             <div>
@@ -123,7 +125,7 @@ export const ProductDetailPage = () => {
               </div>
               <div className="space-y-4">
                 {relatedResources.map(res => (
-                  <Link key={res.id} to={`/resources/${res.id}`} className="block p-5 bg-paper border border-border-subtle rounded-radius-card hover:border-accent-brand transition-colors group">
+                  <Link key={res.id} to={`/resources/${res.id}`} className="block p-5 bg-paper border border-border-default rounded-[24px] hover:border-accent-brand transition-colors group">
                     <span className="mono-label text-[10px] text-accent-brand uppercase block mb-2">{res.type}</span>
                     <h5 className="text-[15px] font-bold text-tx-primary mb-1 group-hover:text-accent-brand transition-colors">{res.name}</h5>
                     <p className="text-xs text-tx-tertiary line-clamp-1">{res.oneLiner}</p>
@@ -140,8 +142,8 @@ export const ProductDetailPage = () => {
               </div>
               <div className="space-y-4">
                 {relatedInsights.map(insight => (
-                  <Link key={insight.id} to={`/insights/${insight.id}`} className="flex items-center gap-4 p-4 bg-paper border border-border-subtle rounded-radius-card hover:border-accent-brand transition-colors group">
-                    <img src={insight.image} alt="" className="w-12 h-12 rounded bg-surface object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
+                  <Link key={insight.id} to={`/insights/${insight.id}`} className="flex items-center gap-4 p-4 bg-paper border border-border-default rounded-[24px] hover:border-accent-brand transition-colors group">
+                    <img src={insight.image} alt="" className="w-12 h-12 rounded-[14px] bg-surface object-cover transition-all group-hover:scale-[1.04]" />
                     <div>
                       <h5 className="text-sm font-bold text-tx-primary leading-tight mb-1 group-hover:text-accent-brand transition-colors">{insight.title}</h5>
                       <span className="mono-label text-[9px] text-tx-tertiary uppercase tracking-widest">{insight.date}</span>
@@ -159,7 +161,7 @@ export const ProductDetailPage = () => {
               </div>
               <div className="space-y-4">
                 {relatedLab.map(lab => (
-                  <Link key={lab.id} to={`/lab/${lab.id}`} className="block p-5 bg-paper border border-border-subtle rounded-radius-card hover:border-accent-brand transition-colors group">
+                  <Link key={lab.id} to={`/lab/${lab.id}`} className="block p-5 bg-paper border border-border-default rounded-[24px] hover:border-accent-brand transition-colors group">
                     <div className="flex items-center justify-between mb-4">
                       <span className="mono-label text-[10px] text-accent-practical uppercase">{lab.status}</span>
                       <span className="mono-label text-[10px] text-tx-quaternary uppercase">{lab.recentUpdate.split(' / ')[0]}</span>
@@ -170,6 +172,7 @@ export const ProductDetailPage = () => {
                 ))}
               </div>
             </div>
+          </div>
           </div>
         </div>
       </section>

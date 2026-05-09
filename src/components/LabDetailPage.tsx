@@ -33,10 +33,11 @@ export const LabDetailPage = () => {
   const relatedInsights = INSIGHTS.filter(i => experiment.relatedInsights?.includes(i.id));
 
   return (
-    <div className="bg-paper min-h-screen">
+    <div className="page-shell">
       {/* Lab Header */}
-      <section className="pt-24 pb-16 border-b border-border-subtle">
-        <div className="max-w-[1120px] mx-auto px-6">
+      <section className="page-hero">
+        <div className="section-shell">
+          <div className="page-hero-card p-6 md:p-8">
           <Link to="/lab" className="inline-flex items-center gap-2 text-xs font-medium text-tx-tertiary hover:text-tx-primary transition-colors mb-8 group">
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
             BACK TO LAB
@@ -51,21 +52,22 @@ export const LabDetailPage = () => {
                 STAGE: {experiment.status}
               </span>
             </div>
-            <h1 className="text-[48px] serif-heading font-bold text-tx-primary mb-8 tracking-tighter leading-tight">
+            <h1 className="page-hero-title mb-8">
               {experiment.name}
             </h1>
-            <div className="p-10 bg-surface border border-border-subtle rounded-radius-card">
-              <p className="text-lg text-tx-primary font-medium leading-relaxed italic border-l-4 border-accent-practical pl-6">
+            <div className="p-10 bg-surface/84 border border-border-default rounded-[30px]">
+              <p className="text-lg text-tx-primary font-medium leading-relaxed italic rounded-[24px] bg-accent-green/45 px-6 py-5">
                 “{experiment.motivation}”
               </p>
             </div>
+          </div>
           </div>
         </div>
       </section>
 
       {/* Lab Main Content */}
       <section className="py-24">
-        <div className="max-w-[1120px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div className="section-shell grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8 space-y-24">
             {/* Phase */}
             <div className="space-y-6">
@@ -104,7 +106,7 @@ export const LabDetailPage = () => {
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {experiment.outputs.map((o, idx) => (
-                  <div key={idx} className="p-5 bg-surface border border-border-subtle rounded-radius-card flex items-center gap-4 text-sm font-bold text-tx-primary">
+                  <div key={idx} className="p-5 bg-surface/84 border border-border-default rounded-[24px] flex items-center gap-4 text-sm font-bold text-tx-primary">
                     <PlayCircle size={18} className="text-accent-practical" />
                     {o}
                   </div>
@@ -117,7 +119,7 @@ export const LabDetailPage = () => {
               <h3 className="mono-label text-[11px] text-tx-tertiary uppercase tracking-widest pb-4 border-b border-border-subtle flex items-center gap-2">
                 <ShieldAlert size={14} /> Pitfalls & Adjustments
               </h3>
-              <div className="p-8 bg-accent-alert/5 border border-accent-alert/10 rounded-radius-card">
+              <div className="p-8 bg-accent-orange/36 border border-[rgba(231,154,79,0.18)] rounded-[28px]">
                 <p className="text-base text-tx-secondary italic leading-relaxed">
                   "{experiment.pitfalls}"
                 </p>
@@ -131,7 +133,7 @@ export const LabDetailPage = () => {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {experiment.nextSteps.map((s, idx) => (
-                  <div key={idx} className="p-5 border border-border-subtle rounded-radius-card flex items-start gap-3">
+                  <div key={idx} className="p-5 border border-border-default rounded-[24px] flex items-start gap-3 bg-surface/62">
                     <ArrowRight size={14} className="mt-0.5 text-tx-quaternary" />
                     <span className="text-sm text-tx-secondary font-medium">{s}</span>
                   </div>
@@ -141,7 +143,7 @@ export const LabDetailPage = () => {
           </div>
 
           <aside className="lg:col-span-4 space-y-10">
-            <div className="p-8 border border-border-subtle rounded-radius-card bg-surface sticky top-24">
+            <div className="p-8 border border-border-default rounded-[30px] bg-surface/84 sticky top-24">
               <h4 className="mono-label text-[10px] text-tx-tertiary uppercase tracking-widest mb-10">Linked Documents</h4>
               
               <div className="space-y-12">
@@ -199,17 +201,19 @@ export const LabDetailPage = () => {
       </section>
 
       {/* Lab Nav Footer */}
-      <section className="py-24 border-t border-border-subtle bg-inverse text-white">
-        <div className="max-w-[1120px] mx-auto px-6 text-center">
+      <section className="py-24">
+        <div className="section-shell text-center">
+          <div className="rounded-[34px] border border-border-default bg-tx-primary text-white p-8 md:p-10">
           <h2 className="text-[32px] serif-heading font-bold mb-16">更多实验室公开动态</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
             {EXPERIMENTS.filter(e => e.id !== Number(id)).slice(0, 3).map(e => (
-              <Link key={e.id} to={`/lab/${e.id}`} className="p-8 border border-white/10 rounded-radius-card bg-white/[0.02] hover:bg-white/[0.05] transition-all group">
+              <Link key={e.id} to={`/lab/${e.id}`} className="p-8 border border-white/10 rounded-[26px] bg-white/[0.04] hover:bg-white/[0.07] transition-all group">
                 <div className="mono-label text-[10px] text-tx-quaternary uppercase mb-4">{e.status}</div>
                 <h5 className="text-[18px] font-bold text-white mb-4 group-hover:text-accent-practical transition-colors leading-tight">{e.name}</h5>
                 <p className="text-xs text-tx-tertiary line-clamp-2 leading-relaxed">{e.motivation}</p>
               </Link>
             ))}
+          </div>
           </div>
         </div>
       </section>

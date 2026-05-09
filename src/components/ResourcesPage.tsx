@@ -17,23 +17,23 @@ export const ResourcesPage = () => {
   });
 
   return (
-    <div className="bg-paper min-h-screen">
-      {/* Header Section */}
-      <section className="pt-24 pb-16 border-b border-border-subtle">
-        <div className="max-w-[1120px] mx-auto px-6">
-          <span className="mono-label text-[12px] text-tx-tertiary uppercase mb-4 block">TRANSFU WORKBENCH / RESOURCES</span>
-          <h1 className="text-[48px] serif-heading font-bold text-tx-primary mb-6 tracking-tighter">
+    <div className="page-shell">
+      <section className="page-hero">
+        <div className="section-shell">
+          <div className="page-hero-card p-6 md:p-8">
+          <span className="section-kicker mb-5">TRANSFU WORKBENCH / RESOURCES</span>
+          <h1 className="page-hero-title mb-6">
             拿走工程级、<br />真实的 AI 可复用资源。
           </h1>
-          <p className="text-lg text-tx-secondary max-w-2xl leading-relaxed">
+          <p className="page-hero-copy max-w-2xl">
             这里的每个资源（Prompt、组件、研究报告）都来自我们的真实实验项目。你可以将它们作为解决特定工程问题的起点。
           </p>
+          </div>
         </div>
       </section>
 
-      {/* Filter & Search Bar */}
-      <section className="sticky top-[64px] z-30 bg-paper/80 backdrop-blur-md border-b border-border-subtle overflow-x-auto">
-        <div className="max-w-[1120px] mx-auto px-6 h-16 flex items-center justify-between gap-8 whitespace-nowrap">
+      <section className="filter-shell">
+        <div className="section-shell h-16 flex items-center justify-between gap-8 whitespace-nowrap">
           <div className="flex items-center gap-6">
             <span className="mono-label text-[11px] text-tx-tertiary uppercase tracking-widest">Type:</span>
             {['全部', ...RESOURCE_CATEGORIES.map(c => c.name)].map(s => (
@@ -52,7 +52,7 @@ export const ResourcesPage = () => {
             ))}
           </div>
           
-          <div className="relative flex items-center min-w-[240px]">
+          <div className="relative flex items-center min-w-[240px] rounded-full border border-border-subtle bg-paper/80 px-4">
             <Search size={16} className="absolute left-0 text-tx-tertiary" />
             <input 
               type="text" 
@@ -65,9 +65,8 @@ export const ResourcesPage = () => {
         </div>
       </section>
 
-      {/* Resources Grid */}
       <section className="py-24">
-        <div className="max-w-[1120px] mx-auto px-6">
+        <div className="section-shell">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {filteredResources.map((res, idx) => (
               <motion.div
@@ -75,7 +74,7 @@ export const ResourcesPage = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05 }}
-                className="group flex flex-col p-6 bg-elevated border border-border-subtle rounded-radius-card hover:border-border-strong hover:shadow-workshop hover:-translate-y-0.5 transition-all cursor-pointer"
+                className="group flex flex-col p-6 bg-surface/86 border border-border-default rounded-[28px] hover:border-border-strong hover:shadow-workshop hover:-translate-y-0.5 transition-all cursor-pointer"
                 onClick={() => navigate(`/resources/${res.id}`)}
               >
                 <div className="mono-label text-[11px] text-accent-alert uppercase mb-4">
@@ -99,11 +98,11 @@ export const ResourcesPage = () => {
           </div>
 
           {filteredResources.length === 0 && (
-            <div className="text-center py-32 border border-dashed border-border-subtle rounded-radius-card">
+            <div className="text-center py-32 border border-dashed border-border-subtle rounded-[28px] bg-surface/60">
               <p className="text-tx-tertiary mb-6">没有找到匹配的实验资源</p>
               <button 
                 onClick={() => { setFilter('全部'); setSearchQuery(''); }}
-                className="h-10 px-6 bg-inverse text-white text-sm font-medium rounded-radius-button hover:bg-black transition-colors"
+                className="primary-button h-10 px-6 text-sm"
               >
                 显示全部资源
               </button>

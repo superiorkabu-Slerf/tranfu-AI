@@ -38,14 +38,15 @@ function HomePage() {
   return (
     <>
       <Hero />
-      <div className="max-w-[1120px] mx-auto px-6">
+      <div className="section-shell">
         <EntrySection />
         <StageSummary />
         <ProductShowcase />
         <ResourceDesk />
+        <ArticleSection />
       </div>
       <LabTimeline />
-      <div className="max-w-[1120px] mx-auto px-6">
+      <div className="section-shell">
         <FAQSection />
       </div>
     </>

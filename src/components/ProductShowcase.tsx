@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { useNavigate, Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { PRODUCTS } from '../data';
+import { DottedCluster, LoopArrow } from './Doodles';
 
 export const ProductShowcase = () => {
   const navigate = useNavigate();
@@ -10,88 +11,120 @@ export const ProductShowcase = () => {
   const others = PRODUCTS.slice(1, 3);
 
   return (
-    <section className="pt-32 pb-24">
-      <div className="mb-16">
-        <div className="flex items-center gap-3 mb-2">
-          <h2 className="text-[32px] serif-heading font-bold text-tx-primary">在做的东西</h2>
-          <span className="mono-label text-[11px] text-tx-quaternary pt-2">/ INTERNAL BUILD</span>
+    <section className="relative py-24 md:py-30">
+      <div className="absolute left-0 top-20 h-44 w-44 rounded-full bg-accent-orange/45 blur-3xl" />
+      <div className="absolute right-10 top-10 h-40 w-40 rounded-full bg-accent-brand-soft blur-3xl" />
+
+      <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
+        <div className="max-w-[640px]">
+          <span className="section-kicker mb-4">Products In Motion</span>
+          <h2 className="text-[36px] leading-[1.1] md:text-[50px] font-semibold">先看已经长出来的，再决定要不要继续深入。</h2>
         </div>
-        <p className="text-tx-tertiary text-base">有的能用了，有的还在修，有的可能明天就砍掉。</p>
+        <p className="max-w-[380px] text-[15px] text-tx-tertiary">
+          不同阶段的产品放在一起看，能更快判断它们现在处于可体验、验证中，还是还在摸索。
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
-        {/* Primary Product (2/3 width) */}
-        <motion.div 
-          initial={{ opacity: 0, y: 10 }}
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(320px,0.85fr)] lg:items-start">
+        <motion.button
+          type="button"
+          initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="md:col-span-8 group cursor-pointer"
           onClick={() => navigate(`/products/${featured.id}`)}
+          className="group relative overflow-hidden rounded-[38px] border border-border-default bg-surface/84 p-5 text-left shadow-workshop transition-all hover:-translate-y-1"
         >
-          <div className="relative aspect-[16/10] bg-surface rounded-radius-card overflow-hidden border border-border-subtle group-hover:border-border-strong transition-all mb-8 shadow-sm">
-            <img 
-              src={featured.image} 
-              alt={featured.name} 
-              className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" 
+          <div className="absolute inset-x-5 top-5 flex items-center justify-between">
+            <span className="status-sticker">{featured.status}</span>
+            <span className="rounded-full border border-border-subtle bg-paper/90 px-3 py-1 text-[11px] text-tx-tertiary mono-label uppercase">
+              #{featured.tags[0]}
+            </span>
+          </div>
+
+          <div className="relative mt-12 overflow-hidden rounded-[30px] border border-border-subtle bg-[linear-gradient(180deg,rgba(255,253,248,0.2),rgba(23,38,64,0.18))]">
+            <img
+              src={featured.image}
+              alt={featured.name}
+              className="aspect-[16/10] w-full object-cover transition-all duration-700 group-hover:scale-[1.03]"
             />
-            {/* Status Sticker */}
-            <div className="status-sticker">
-              {featured.status === '进行中' ? 'LIVE TESTING' : featured.status.toUpperCase()}
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(251,247,239,0.00),rgba(23,38,64,0.08))]" />
+
+            <div className="absolute left-5 top-5 rounded-[24px] border border-white/30 bg-surface/92 p-4 shadow-float">
+              <p className="text-xs font-semibold text-tx-primary">入口状态</p>
+              <div className="mt-3 flex gap-2">
+                <span className="rounded-full bg-accent-green px-3 py-1 text-[10px] font-semibold text-accent-green-strong">Ready</span>
+                <span className="rounded-full bg-accent-brand-soft px-3 py-1 text-[10px] font-semibold text-accent-brand">Switch</span>
+              </div>
+            </div>
+
+            <div className="absolute bottom-5 right-5 w-[58%] rounded-[26px] border border-white/30 bg-surface/92 p-4 shadow-float sm:w-[46%]">
+              <div className="mb-3 flex items-center justify-between text-xs">
+                <span className="font-semibold text-tx-primary">上手进度</span>
+                <span className="text-accent-brand">72%</span>
+              </div>
+              <div className="mb-4 h-2 overflow-hidden rounded-full bg-divider/80">
+                <div className="h-full w-[72%] rounded-full bg-accent-brand" />
+              </div>
+              <div className="space-y-2 text-[11px] text-tx-secondary">
+                <div className="flex items-center justify-between"><span>模型入口整理</span><span>done</span></div>
+                <div className="flex items-center justify-between"><span>切换反馈</span><span>testing</span></div>
+              </div>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4">
-            <div>
-              <div className="flex items-center gap-3 mb-3">
-                <span className="mono-label text-[11px] px-2 py-0.5 border border-tx-tertiary/20 text-tx-tertiary uppercase rounded-radius-badge">
-                  {featured.status}
-                </span>
-                <span className="mono-label text-[11px] text-tx-quaternary uppercase">
-                  #{featured.tags[0]}
-                </span>
-              </div>
-              <h3 className="text-[32px] serif-heading font-bold text-tx-primary mb-4 group-hover:text-accent-brand transition-colors">
+
+          <div className="relative z-10 mt-7 flex flex-wrap items-end justify-between gap-5">
+            <div className="max-w-[32rem]">
+              <h3 className="mb-3 text-[30px] md:text-[38px] leading-[1.14] font-semibold text-tx-primary">
                 {featured.name}
               </h3>
-              <p className="text-tx-secondary text-lg max-w-xl">
-                {featured.oneLiner}
-              </p>
+              <p className="text-[16px] text-tx-secondary">{featured.oneLiner}</p>
             </div>
-            <div className="text-tx-tertiary group-hover:text-tx-primary transition-colors flex items-center gap-2 font-medium">
-              See Project <ArrowRight size={18} />
+            <div className="inline-flex items-center gap-2 text-sm font-semibold text-tx-primary">
+              查看项目
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </div>
           </div>
-        </motion.div>
+        </motion.button>
 
-        {/* Secondary Products (1/3 width vertical) */}
-        <div className="md:col-span-4 flex flex-col gap-12 pt-0 md:pt-4">
+        <div className="relative flex flex-col gap-5 lg:pt-10">
+          <LoopArrow className="absolute -top-8 right-8 hidden text-accent-orange-strong/45 lg:block" />
           {others.map((product, idx) => (
-            <motion.div 
+            <motion.button
+              type="button"
               key={product.id}
-              initial={{ opacity: 0, x: 10 }}
+              initial={{ opacity: 0, x: 12 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="group cursor-pointer border-b border-border-subtle pb-8 last:border-0"
               onClick={() => navigate(`/products/${product.id}`)}
+              className={`group rounded-[30px] border p-5 text-left transition-all hover:-translate-y-1 hover:shadow-workshop ${
+                idx === 0
+                  ? 'border-[rgba(231,154,79,0.24)] bg-accent-orange/52'
+                  : 'border-[rgba(91,170,122,0.2)] bg-accent-green/56'
+              }`}
             >
-              <div className="flex items-center gap-2 mb-3">
-                <span className="mono-label text-[11px] text-accent-practical uppercase">{product.status}</span>
+              <div className="mb-3 flex items-center justify-between gap-3">
+                <span className="rounded-full bg-surface/90 px-3 py-1 text-[10px] font-semibold text-tx-primary mono-label uppercase">
+                  {product.status}
+                </span>
+                <span className="text-xs text-tx-quaternary">0{idx + 2}</span>
               </div>
-              <h4 className="text-[24px] serif-heading font-bold text-tx-primary mb-3 group-hover:text-accent-brand transition-colors">
-                {product.name}
-              </h4>
-              <p className="text-sm text-tx-tertiary line-clamp-2 leading-relaxed mb-4">
-                {product.oneLiner}
-              </p>
-            </motion.div>
+              <h4 className="mb-3 text-[24px] leading-[1.2] font-semibold text-tx-primary">{product.name}</h4>
+              <p className="text-sm text-tx-secondary">{product.oneLiner}</p>
+            </motion.button>
           ))}
-          
-          <Link 
-            to="/products"
-            className="flex items-center justify-center h-[44px] border border-border-default rounded-radius-button text-sm font-medium hover:bg-surface transition-all"
-          >
-            查看全站项目集 →
-          </Link>
+
+          <div className="rounded-[28px] border border-border-default bg-surface/70 p-5">
+            <div className="mb-3 flex items-center justify-between">
+              <span className="section-kicker !mb-0">Collection</span>
+              <DottedCluster className="text-tx-faint" />
+            </div>
+            <p className="mb-5 text-sm text-tx-tertiary">整站项目集里同时包含稳定入口、验证中原型和被放弃的方向。</p>
+            <Link to="/products" className="inline-flex items-center gap-2 text-sm font-semibold text-accent-brand">
+              查看全站项目集
+              <ArrowRight size={16} />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

@@ -13,23 +13,23 @@ export const LabPage = () => {
     : EXPERIMENTS.filter(e => e.status === activeStage);
 
   return (
-    <div className="bg-paper min-h-screen">
-      {/* Header Section */}
-      <section className="pt-24 pb-16 border-b border-border-subtle">
-        <div className="max-w-[1120px] mx-auto px-6">
-          <span className="mono-label text-[12px] text-tx-tertiary uppercase mb-4 block">TRANSFU WORKBENCH / OPEN LAB</span>
-          <h1 className="text-[48px] serif-heading font-bold text-tx-primary mb-6 tracking-tighter">
+    <div className="page-shell">
+      <section className="page-hero">
+        <div className="section-shell">
+          <div className="page-hero-card p-6 md:p-8">
+          <span className="section-kicker mb-5">TRANSFU WORKBENCH / OPEN LAB</span>
+          <h1 className="page-hero-title mb-6">
             我们不只公开产品，<br />也公开所有的实验纠结。
           </h1>
-          <p className="text-lg text-tx-secondary max-w-2xl leading-relaxed">
+          <p className="page-hero-copy max-w-2xl">
             这里的实验室记录了原子级的探索、失败的尝试和阶段性的胜利。我们认为，通往答案的过程本身就是一种可交付的资产。
           </p>
+          </div>
         </div>
       </section>
 
-      {/* Filter Section */}
-      <section className="sticky top-[64px] z-30 bg-paper/80 backdrop-blur-md border-b border-border-subtle overflow-x-auto">
-        <div className="max-w-[1120px] mx-auto px-6 h-16 flex items-center gap-8 whitespace-nowrap">
+      <section className="filter-shell">
+        <div className="section-shell h-16 flex items-center gap-8 whitespace-nowrap">
           <span className="mono-label text-[11px] text-tx-tertiary uppercase tracking-widest">Stage:</span>
           {['全部', ...EXPERIMENT_STAGES].map(s => (
             <button
@@ -48,9 +48,8 @@ export const LabPage = () => {
         </div>
       </section>
 
-      {/* Experiments Grid */}
       <section className="py-24">
-        <div className="max-w-[1120px] mx-auto px-6">
+        <div className="section-shell">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {filteredExperiments.map((exp, idx) => (
               <motion.div
@@ -59,7 +58,7 @@ export const LabPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.05 }}
                 onClick={() => navigate(`/lab/${exp.id}`)}
-                className="group cursor-pointer flex flex-col p-8 bg-surface border border-border-subtle rounded-radius-card hover:border-border-strong hover:bg-white transition-all h-full"
+                className="group cursor-pointer flex flex-col p-8 bg-surface/82 border border-border-default rounded-[30px] hover:border-border-strong transition-all h-full"
               >
                 <div className="flex items-center justify-between mb-8">
                   <span className="mono-label text-[11px] px-2 py-0.5 border border-accent-practical/20 text-accent-practical uppercase rounded-radius-badge">
@@ -96,18 +95,19 @@ export const LabPage = () => {
       </section>
 
       {/* Lab History / Log */}
-      <section className="py-24 bg-inverse text-white">
-        <div className="max-w-[1120px] mx-auto px-6">
+      <section className="py-24">
+        <div className="section-shell">
+          <div className="rounded-[36px] border border-border-default bg-[linear-gradient(180deg,rgba(255,253,248,0.84),rgba(239,229,214,0.72))] p-6 md:p-8 shadow-workshop">
           <div className="mb-16">
-            <h2 className="text-[32px] serif-heading font-bold text-white mb-4">全量实验日志</h2>
-            <p className="text-tx-quaternary text-lg">按照时间倒序排列的原子更新。包含所有正在发生的技术细节和方向调整。</p>
+            <h2 className="text-[32px] serif-heading font-bold text-tx-primary mb-4">全量实验日志</h2>
+            <p className="text-tx-tertiary text-lg">按照时间倒序排列的原子更新。包含所有正在发生的技术细节和方向调整。</p>
           </div>
           
-          <div className="border-t border-white/10">
+          <div className="border-t border-border-subtle">
             {LAB_UPDATES.map((u, i) => (
               <div 
                 key={i} 
-                className="group flex flex-col md:flex-row gap-6 md:gap-12 py-8 border-b border-white/10 hover:bg-white/[0.02] transition-colors px-4 -mx-4 cursor-pointer"
+                className="group flex flex-col md:flex-row gap-6 md:gap-12 py-8 border-b border-border-subtle hover:bg-surface/60 transition-colors px-4 -mx-4 cursor-pointer rounded-[22px]"
                 onClick={() => u.labId && navigate(`/lab/${u.labId}`)}
               >
                 <div className="md:w-32 flex-shrink-0 mono-label text-[12px] text-tx-quaternary pt-1 uppercase">
@@ -115,16 +115,17 @@ export const LabPage = () => {
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[12px] font-medium text-accent-practical mono-label">{u.project}</span>
-                    <span className="w-1 h-1 rounded-full bg-white/20" />
-                    <span className="text-[11px] text-white/40 uppercase tracking-widest mono-label">{u.status}</span>
+                    <span className="text-[12px] font-medium text-accent-green-strong mono-label">{u.project}</span>
+                    <span className="w-1 h-1 rounded-full bg-tx-faint" />
+                    <span className="text-[11px] text-tx-quaternary uppercase tracking-widest mono-label">{u.status}</span>
                   </div>
-                  <p className="text-lg text-white group-hover:text-accent-practical transition-colors leading-relaxed">
+                  <p className="text-lg text-tx-primary group-hover:text-accent-green-strong transition-colors leading-relaxed">
                     {u.update}
                   </p>
                 </div>
               </div>
             ))}
+          </div>
           </div>
         </div>
       </section>

@@ -1,35 +1,45 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
 export const Footer = () => {
   return (
-    <footer className="py-8 border-t border-border-subtle bg-paper">
-      <div className="max-w-[1120px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-6">
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-inverse text-white flex items-center justify-center font-bold text-[10px] rounded-sm">T</div>
-            <span className="text-sm font-bold serif-heading text-tx-primary tracking-tighter">TRANFU</span>
-          </Link>
-          <div className="hidden md:flex items-center gap-4 border-l border-border-subtle pl-6">
-            <Link to="/products" className="text-[12px] mono-label text-tx-tertiary hover:text-tx-primary transition-colors">产品 Product</Link>
-            <Link to="/resources" className="text-[12px] mono-label text-tx-tertiary hover:text-tx-primary transition-colors">资源 Resource</Link>
-            <Link to="/lab" className="text-[12px] mono-label text-tx-tertiary hover:text-tx-primary transition-colors">实验室 Lab</Link>
+    <footer className="pb-10 pt-14">
+      <div className="section-shell">
+        <div className="mb-8 h-px w-full bg-[linear-gradient(90deg,transparent,rgba(23,38,64,0.14),transparent)]" />
+
+        <div className="mb-10 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-[560px]">
+            <div className="mb-3 flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-tx-primary text-sm font-bold text-surface">T</div>
+              <span className="serif-heading text-[24px] font-bold text-tx-primary">TRANFU</span>
+            </div>
+            <p className="text-[15px] text-tx-secondary">
+              做真实产品，公开真实过程，把有用的判断和结构留给真正准备动手的人。
+            </p>
           </div>
+
+          <Link to="/cobuild" className="primary-button self-start">
+            发起需求共建
+            <ArrowRight size={16} />
+          </Link>
         </div>
 
-        <div className="flex items-center gap-6 text-[11px] mono-label text-tx-quaternary uppercase tracking-widest">
-          <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+        <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-tx-tertiary">
+            <Link to="/products" className="hover:text-tx-primary">产品</Link>
+            <Link to="/resources" className="hover:text-tx-primary">资源</Link>
+            <Link to="/insights" className="hover:text-tx-primary">资讯</Link>
+            <Link to="/lab" className="hover:text-tx-primary">公开实验室</Link>
+            <Link to="/about" className="hover:text-tx-primary">关于我们</Link>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-4 text-[11px] uppercase tracking-[0.18em] text-tx-quaternary mono-label">
             <span>© 2024 TRANFU WORKBENCH</span>
-            <span className="hidden md:inline-block opacity-30">|</span>
-            <span className="text-[10px] tracking-normal">浙ICP备2024090101号-1</span>
+            <a href="#" className="hover:text-tx-secondary">WeChat</a>
+            <a href="#" className="hover:text-tx-secondary">Twitter</a>
+            <a href="#" className="hover:text-tx-secondary">Newsletter</a>
           </div>
-          <div className="flex items-center gap-4 hidden lg:flex border-l border-border-subtle pl-4 ml-4">
-            <a href="#" className="hover:text-tx-secondary transition-colors">微信</a>
-            <a href="#" className="hover:text-tx-secondary transition-colors">Github</a>
-            <a href="#" className="hover:text-tx-secondary transition-colors">X</a>
-            <a href="#" className="hover:text-tx-secondary transition-colors">小红书</a>
-          </div>
-          <Link to="/about" className="hover:text-tx-secondary transition-colors underline-offset-4 underline decoration-transparent hover:decoration-tx-quaternary">关于我们 About</Link>
         </div>
       </div>
     </footer>

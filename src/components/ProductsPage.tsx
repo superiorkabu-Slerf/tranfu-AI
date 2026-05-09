@@ -17,23 +17,23 @@ export const ProductsPage = () => {
   });
 
   return (
-    <div className="bg-paper min-h-screen">
-      {/* Header Section */}
-      <section className="pt-24 pb-16 border-b border-border-subtle">
-        <div className="max-w-[1120px] mx-auto px-6">
-          <span className="mono-label text-[12px] text-tx-tertiary uppercase mb-4 block">TRANSFU WORKBENCH / PRODUCTS</span>
-          <h1 className="text-[48px] serif-heading font-bold text-tx-primary mb-6 tracking-tighter">
+    <div className="page-shell">
+      <section className="page-hero">
+        <div className="section-shell">
+          <div className="page-hero-card p-6 md:p-8">
+          <span className="section-kicker mb-5">TRANSFU WORKBENCH / PRODUCTS</span>
+          <h1 className="page-hero-title mb-6">
             我们正在真实构建的<br />AI 产品实验室
           </h1>
-          <p className="text-lg text-tx-secondary max-w-2xl leading-relaxed">
+          <p className="page-hero-copy max-w-2xl">
             这里的每个项目都不是最终的结论，而是持续演进中的过程。我们保留所有的决策记录，包括那些被暂停和放弃的方向。
           </p>
+          </div>
         </div>
       </section>
 
-      {/* Filter & Search Bar */}
-      <section className="sticky top-[64px] z-30 bg-paper/80 backdrop-blur-md border-b border-border-subtle overflow-x-auto">
-        <div className="max-w-[1120px] mx-auto px-6 h-16 flex items-center justify-between gap-8 whitespace-nowrap">
+      <section className="filter-shell">
+        <div className="section-shell flex h-16 items-center justify-between gap-8 whitespace-nowrap">
           <div className="flex items-center gap-6">
             <span className="mono-label text-[11px] text-tx-tertiary uppercase tracking-widest">Filter:</span>
             {['全部', ...PRODUCT_STATUSES].map(s => (
@@ -52,7 +52,7 @@ export const ProductsPage = () => {
             ))}
           </div>
           
-          <div className="relative flex items-center min-w-[240px]">
+          <div className="relative flex items-center min-w-[240px] rounded-full border border-border-subtle bg-paper/80 px-4">
             <Search size={16} className="absolute left-0 text-tx-tertiary" />
             <input 
               type="text" 
@@ -65,9 +65,8 @@ export const ProductsPage = () => {
         </div>
       </section>
 
-      {/* Product List */}
       <section className="py-24">
-        <div className="max-w-[1120px] mx-auto px-6">
+        <div className="section-shell">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
             {filteredProducts.map((product, idx) => (
               <motion.div
@@ -78,8 +77,8 @@ export const ProductsPage = () => {
                 className="group cursor-pointer"
                 onClick={() => navigate(`/products/${product.id}`)}
               >
-                <div className="aspect-[16/10] bg-surface rounded-radius-card overflow-hidden border border-border-subtle group-hover:border-border-strong transition-all mb-6">
-                  <img src={product.image} alt={product.name} className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
+                <div className="aspect-[16/10] bg-surface rounded-[30px] overflow-hidden border border-border-subtle group-hover:border-border-strong transition-all mb-6 shadow-[0_8px_20px_rgba(61,50,36,0.04)]">
+                  <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-all duration-700 group-hover:scale-[1.02]" />
                 </div>
                 
                 <div>
@@ -106,11 +105,11 @@ export const ProductsPage = () => {
           </div>
 
           {filteredProducts.length === 0 && (
-            <div className="text-center py-32 border border-dashed border-border-subtle rounded-radius-card">
+            <div className="text-center py-32 border border-dashed border-border-subtle rounded-[28px] bg-surface/60">
               <p className="text-tx-tertiary mb-6">没有找到匹配的产品实验项目</p>
               <button 
                 onClick={() => { setFilter('全部'); setSearchQuery(''); }}
-                className="h-10 px-6 bg-inverse text-white text-sm font-medium rounded-radius-button hover:bg-black transition-colors"
+                className="primary-button h-10 px-6 text-sm"
               >
                 清空所有筛选
               </button>

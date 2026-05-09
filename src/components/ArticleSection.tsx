@@ -1,81 +1,89 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Link, useNavigate } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import { INSIGHTS } from '../data';
-import { ArrowRight, BookOpen, Quote } from 'lucide-react';
+import { DottedCluster, Star } from './Doodles';
 
-export const ArticleSection = ({ onNavigate, onSelectInsight }: { 
-  onNavigate: (page: string) => void,
-  onSelectInsight: (id: number) => void
-}) => {
+export const ArticleSection = () => {
+  const navigate = useNavigate();
+
   return (
-    <section id="insights" className="py-40 bg-bg-main relative">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-4xl mx-auto mb-32">
-          <h2 className="text-sm font-bold text-accent-purple-dark uppercase tracking-[0.4em] mb-10 flex items-center justify-center gap-4">
-            <span className="w-12 h-px bg-accent-purple-dark" />
-            Insights / 真实判断
-            <span className="w-12 h-px bg-accent-purple-dark" />
+    <section className="relative py-24 md:py-28">
+      <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
+        <div className="max-w-[680px]">
+          <span className="section-kicker mb-4">Reading Notes</span>
+          <h2 className="text-[36px] leading-[1.1] md:text-[48px] font-semibold">
+            这里不是资讯堆砌，而是我们做事时留下来的判断记录。
           </h2>
-          <h3 className="text-5xl md:text-8xl font-serif font-bold text-text-title tracking-tighter leading-[0.95] mb-12">
-            不是由于资讯堆砌，<br/>而是由于<span className="text-accent-purple-dark italic">实践</span>深研。
+        </div>
+        <p className="max-w-[360px] text-[15px] text-tx-tertiary">
+          它们更像一份正在更新的阅读清单，帮助你理解我们为什么这样做、为什么放弃、为什么继续。
+        </p>
+      </div>
+
+      <div className="grid gap-6 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)]">
+        <div className="relative overflow-hidden rounded-[34px] border border-border-default bg-accent-purple/38 p-6 md:p-7">
+          <Star className="absolute right-5 top-5 text-accent-purple-strong/55" />
+          <div className="mb-4 rounded-full bg-surface/88 px-3 py-1 text-[11px] font-semibold text-accent-purple-strong mono-label inline-flex uppercase">
+            Why we share
+          </div>
+          <h3 className="mb-4 text-[28px] md:text-[34px] leading-[1.18] font-semibold text-tx-primary">
+            不求每个结论都对，但求每个判断都有据可循。
           </h3>
-          <p className="text-xl md:text-2xl text-text-muted leading-relaxed font-medium">
-            这些不是泛泛而谈的行业新闻，而是我们在做项目时的真实判断逻辑、经验教训与避坑指南。
+          <p className="text-[15px] text-tx-secondary">
+            所以这里保留的不只是结论，还有中间的判断逻辑、反例、转向和踩坑记录。
           </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
-          {INSIGHTS.slice(0, 4).map((article, idx) => (
-            <motion.div 
-              key={article.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="group cursor-pointer border-l-4 border-text-title/5 pl-12 py-4 hover:border-brand-blue transition-all"
-              onClick={() => onSelectInsight(article.id)}
-            >
-              <div className="mb-6">
-                <span className="text-[11px] font-bold text-brand-blue uppercase tracking-widest">{article.category}</span>
-                <span className="mx-3 text-text-title/10">/</span>
-                <span className="text-[11px] font-bold text-text-hint uppercase tracking-widest">{article.date}</span>
-              </div>
-              <h3 className="text-3xl md:text-4xl font-serif font-bold text-text-title group-hover:text-brand-blue transition-colors leading-[1.2] mb-8 tracking-tight">
-                {article.title}
-              </h3>
-              <p className="text-lg text-text-body font-medium leading-relaxed mb-8 line-clamp-3">
-                {article.oneLiner || article.summary}
-              </p>
-              <div className="flex items-center gap-4 text-sm font-bold text-text-title group-hover:gap-6 transition-all">
-                Read Entry <ArrowRight size={18} />
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="mt-40 p-16 md:p-24 bg-bg-warm-white rounded-[64px] border border-text-title/5 relative overflow-hidden group">
-          <div className="relative z-10 max-w-2xl">
-            <Quote size={48} className="text-accent-purple-dark/20 mb-8" />
-            <h4 className="text-3xl md:text-4xl font-serif font-bold text-text-title mb-8 leading-tight tracking-tight">
-              “不求每个结论都对，但求每个判断都有据可循。这是我们公开过程的核心价值。”
-            </h4>
-            <div className="flex items-center gap-6">
-              <button 
-                onClick={() => onNavigate('资讯')}
-                className="h-16 px-10 rounded-full bg-text-title text-white font-bold text-sm hover:bg-brand-blue transition-all"
-              >
-                查看全部深度专题
-              </button>
-              <button 
-                onClick={() => onNavigate('需求共建')}
-                className="text-sm font-bold text-text-title hover:text-brand-blue transition-colors flex items-center gap-2 group/btn"
-              >
-                提供你的问题场景
-                <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
-              </button>
+          <div className="mt-8 rounded-[26px] border border-border-subtle bg-surface/78 p-4">
+            <div className="mb-3 flex items-center justify-between">
+              <span className="text-xs font-semibold text-tx-primary">近期主题</span>
+              <DottedCluster className="text-accent-purple-strong/55" />
+            </div>
+            <div className="space-y-2 text-sm text-tx-secondary">
+              <div className="rounded-full bg-paper/85 px-3 py-2">Prompt 评审方式</div>
+              <div className="rounded-full bg-paper/85 px-3 py-2">会议决策追踪</div>
+              <div className="rounded-full bg-paper/85 px-3 py-2">为什么放弃泛资讯站</div>
             </div>
           </div>
-          <div className="absolute top-0 right-0 w-96 h-full bg-accent-purple/10 translate-x-32 skew-x-12 group-hover:translate-x-12 transition-transform duration-1000" />
+          <Link to="/insights" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-brand">
+            查看全部判断记录
+            <ArrowRight size={16} />
+          </Link>
+        </div>
+
+        <div className="space-y-4">
+          {INSIGHTS.slice(0, 4).map((article, idx) => (
+            <motion.button
+              type="button"
+              key={article.id}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.08 }}
+              onClick={() => navigate(`/insights/${article.id}`)}
+              className="group flex w-full flex-col gap-4 rounded-[30px] border border-border-default bg-surface/78 p-5 text-left transition-all hover:-translate-y-1 hover:shadow-workshop md:flex-row md:items-start"
+            >
+              <div className="flex items-start gap-3 md:w-[220px] md:flex-shrink-0">
+                <span className="mt-1 inline-flex h-9 min-w-9 items-center justify-center rounded-full bg-accent-brand-soft text-sm font-semibold text-accent-brand">
+                  0{idx + 1}
+                </span>
+                <div>
+                  <p className="text-[11px] font-semibold text-accent-brand mono-label uppercase">{article.category}</p>
+                  <p className="mt-1 text-xs text-tx-quaternary">{article.date}</p>
+                </div>
+              </div>
+              <div className="flex-1">
+                <h4 className="mb-2 text-[22px] md:text-[26px] leading-[1.24] font-semibold text-tx-primary">
+                  {article.title}
+                </h4>
+                <p className="text-sm text-tx-secondary">{article.oneLiner || article.summary}</p>
+              </div>
+              <div className="inline-flex items-center gap-2 text-sm font-semibold text-tx-primary md:self-center">
+                阅读
+                <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              </div>
+            </motion.button>
+          ))}
         </div>
       </div>
     </section>

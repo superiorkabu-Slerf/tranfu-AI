@@ -34,10 +34,11 @@ export const ResourceDetailPage = () => {
   const relatedLab = EXPERIMENTS.find(e => e.relatedResources?.includes(resource.id));
 
   return (
-    <div className="bg-paper min-h-screen">
+    <div className="page-shell">
       {/* Header Section */}
-      <section className="pt-24 pb-16 border-b border-border-subtle">
-        <div className="max-w-[1120px] mx-auto px-6">
+      <section className="page-hero">
+        <div className="section-shell">
+          <div className="page-hero-card p-6 md:p-8">
           <Link to="/resources" className="inline-flex items-center gap-2 text-xs font-medium text-tx-tertiary hover:text-tx-primary transition-colors mb-8 group">
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
             BACK TO RESOURCES
@@ -52,22 +53,23 @@ export const ResourceDetailPage = () => {
                 {resource.maturity}
               </span>
             </div>
-            <h1 className="text-[48px] serif-heading font-bold text-tx-primary mb-8 tracking-tighter leading-tight">
+            <h1 className="page-hero-title mb-8">
               {resource.name}
             </h1>
-            <p className="text-xl text-tx-secondary leading-relaxed serif-heading">
+            <p className="page-hero-copy max-w-3xl">
               {resource.oneLiner}
             </p>
+          </div>
           </div>
         </div>
       </section>
 
       {/* Main Content */}
       <section className="py-24">
-        <div className="max-w-[1120px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div className="section-shell grid grid-cols-1 lg:grid-cols-12 gap-16">
           <div className="lg:col-span-8 space-y-24">
             {/* Core Value */}
-            <div className="p-10 bg-surface border border-border-subtle rounded-radius-card">
+            <div className="p-10 bg-surface/84 border border-border-default rounded-[30px]">
               <div className="flex items-center gap-3 mb-6 text-accent-brand">
                 <Target size={20} />
                 <h3 className="text-sm font-bold uppercase tracking-widest mono-label">解决的核心问题</h3>
@@ -87,7 +89,7 @@ export const ResourceDetailPage = () => {
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {resource.problems.map((p: string, idx: number) => (
-                  <div key={idx} className="flex items-start gap-3 p-5 bg-surface border border-border-subtle rounded-radius-card">
+                  <div key={idx} className="flex items-start gap-3 p-5 bg-surface/84 border border-border-default rounded-[24px]">
                     <div className="w-1.5 h-1.5 rounded-full bg-accent-brand mt-2 flex-shrink-0" />
                     <span className="text-sm text-tx-primary font-medium">{p}</span>
                   </div>
@@ -102,8 +104,8 @@ export const ResourceDetailPage = () => {
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {resource.deliverables.map((d: string, idx: number) => (
-                  <div key={idx} className="p-5 bg-paper border border-border-subtle rounded-radius-card flex items-center gap-4 text-sm font-bold text-tx-primary">
-                    <div className="w-10 h-10 rounded-lg bg-surface border border-border-subtle text-accent-brand flex items-center justify-center flex-shrink-0">
+                  <div key={idx} className="p-5 bg-paper border border-border-default rounded-[24px] flex items-center gap-4 text-sm font-bold text-tx-primary">
+                    <div className="w-10 h-10 rounded-[14px] bg-surface border border-border-subtle text-accent-brand flex items-center justify-center flex-shrink-0">
                       <PlayCircle size={18} />
                     </div>
                     {d}
@@ -117,7 +119,7 @@ export const ResourceDetailPage = () => {
               <h3 className="text-[24px] serif-heading font-bold text-tx-primary pb-4 border-b border-border-subtle flex items-center gap-3">
                 <PlayCircle size={20} className="text-tx-quaternary" /> 使用建议
               </h3>
-              <div className="p-8 bg-surface border border-border-subtle rounded-radius-card text-tx-secondary leading-relaxed">
+              <div className="p-8 bg-surface/84 border border-border-default rounded-[28px] text-tx-secondary leading-relaxed">
                 {resource.usage}
               </div>
             </div>
@@ -128,7 +130,7 @@ export const ResourceDetailPage = () => {
                 <h3 className="text-[24px] serif-heading font-bold text-tx-primary pb-4 border-b border-border-subtle flex items-center gap-3">
                   <ShieldAlert size={20} className="text-tx-quaternary" /> 局限与注意
                 </h3>
-                <div className="p-8 bg-accent-alert/5 border border-accent-alert/10 rounded-radius-card">
+                <div className="p-8 bg-accent-orange/36 border border-[rgba(231,154,79,0.18)] rounded-[28px]">
                   <ul className="space-y-4">
                     {resource.boundaries.map((b: string, idx: number) => (
                       <li key={idx} className="flex items-start gap-3 text-sm text-accent-alert font-medium leading-relaxed">
@@ -143,7 +145,7 @@ export const ResourceDetailPage = () => {
           </div>
 
           <aside className="lg:col-span-4 space-y-10">
-            <div className="p-10 bg-inverse text-white rounded-radius-card shadow-workshop sticky top-24">
+            <div className="p-10 bg-tx-primary text-white rounded-[32px] shadow-workshop sticky top-24">
               <h4 className="mono-label text-[10px] text-tx-quaternary uppercase tracking-widest mb-8">Take Action</h4>
               <div className="space-y-4">
                 <button className="w-full h-14 bg-white text-black font-bold text-sm rounded-radius-button hover:bg-tx-quaternary transition-all flex items-center justify-center gap-2 group">
@@ -161,7 +163,7 @@ export const ResourceDetailPage = () => {
             </div>
 
             {(relatedProduct || relatedInsight || relatedLab) && (
-              <div className="p-8 border border-border-subtle rounded-radius-card bg-surface space-y-10">
+              <div className="p-8 border border-border-default rounded-[30px] bg-surface/84 space-y-10">
                 <h4 className="mono-label text-[10px] text-tx-tertiary uppercase tracking-widest">相关来源</h4>
                 {relatedProduct && (
                   <div className="group cursor-pointer" onClick={() => navigate(`/products/${relatedProduct.id}`)}>
@@ -197,8 +199,8 @@ export const ResourceDetailPage = () => {
       </section>
 
       {/* Footer Nav */}
-      <section className="py-24 border-t border-border-subtle bg-surface">
-        <div className="max-w-[1120px] mx-auto px-6">
+      <section className="py-24">
+        <div className="section-shell">
           <div className="flex flex-col md:flex-row items-baseline justify-between mb-12 gap-6">
             <h2 className="text-[32px] serif-heading font-bold text-tx-primary">更多可复用资源</h2>
             <Link to="/resources" className="text-sm font-bold text-tx-tertiary hover:text-tx-primary flex items-center gap-2">
@@ -207,7 +209,7 @@ export const ResourceDetailPage = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {RESOURCES.filter(r => r.id !== Number(id)).slice(0, 4).map(r => (
-              <Link key={r.id} to={`/resources/${r.id}`} className="p-6 bg-paper border border-border-subtle rounded-radius-card hover:border-border-strong hover:shadow-workshop transition-all group">
+              <Link key={r.id} to={`/resources/${r.id}`} className="p-6 bg-paper border border-border-default rounded-[26px] hover:border-border-strong hover:shadow-workshop transition-all group">
                 <span className="mono-label text-[10px] text-tx-tertiary uppercase block mb-3">{r.type}</span>
                 <h5 className="font-bold text-tx-primary mb-2 group-hover:text-accent-brand transition-colors leading-tight">{r.name}</h5>
               </Link>
