@@ -11,7 +11,7 @@ export const LabTimeline = () => {
       <div className="max-w-[1120px] mx-auto px-6">
         <div className="mb-12 flex justify-center">
           <div className="inline-flex items-center gap-4 px-6 py-1.5 rounded-full border border-white/10 bg-white/5">
-            <span className="mono-label text-[10px] text-tx-quaternary">─── tranfu-lab ─── 3 active experiments ─── last commit 2h ago ───</span>
+            <span className="mono-label text-[10px] text-tx-quaternary">─── tranfu-lab ─── 3 个进行中实验 ─── 最近更新于 2 小时前 ───</span>
           </div>
         </div>
 

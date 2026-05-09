@@ -17,7 +17,7 @@ export const LabPage = () => {
       {/* Header Section */}
       <section className="pt-24 pb-16 border-b border-border-subtle">
         <div className="max-w-[1120px] mx-auto px-6">
-          <span className="mono-label text-[12px] text-tx-tertiary uppercase mb-4 block">TRANSFU WORKBENCH / OPEN LAB</span>
+          <span className="mono-label text-[12px] text-tx-tertiary uppercase mb-4 block">TRANFU 实践台 / 公开实验室</span>
           <h1 className="text-[48px] serif-heading font-bold text-tx-primary mb-6 tracking-tighter">
             我们不只公开产品，<br />也公开所有的实验纠结。
           </h1>
@@ -30,7 +30,7 @@ export const LabPage = () => {
       {/* Filter Section */}
       <section className="sticky top-[64px] z-30 bg-paper/80 backdrop-blur-md border-b border-border-subtle overflow-x-auto">
         <div className="max-w-[1120px] mx-auto px-6 h-16 flex items-center gap-8 whitespace-nowrap">
-          <span className="mono-label text-[11px] text-tx-tertiary uppercase tracking-widest">Stage:</span>
+          <span className="mono-label text-[11px] text-tx-tertiary uppercase tracking-widest">阶段：</span>
           {['全部', ...EXPERIMENT_STAGES].map(s => (
             <button
               key={s}

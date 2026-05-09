@@ -8,7 +8,7 @@ export const AboutPage = () => {
       {/* Header Section */}
       <section className="pt-24 pb-16 border-b border-border-subtle">
         <div className="max-w-[1120px] mx-auto px-6">
-          <span className="mono-label text-[12px] text-tx-tertiary uppercase mb-4 block">TRANSFU WORKBENCH / ABOUT US</span>
+          <span className="mono-label text-[12px] text-tx-tertiary uppercase mb-4 block">TRANFU 实践台 / 关于我们</span>
           <h1 className="text-[48px] serif-heading font-bold text-tx-primary mb-6 tracking-tighter leading-tight">
             如果你想了解 Tranfu 是什么、<br />
             为什么公开，以及我们在练什么。
@@ -30,7 +30,7 @@ export const AboutPage = () => {
             <h2 className="text-[32px] serif-heading font-bold text-tx-primary mb-6">实践而非口号</h2>
             <div className="space-y-6 text-tx-secondary leading-relaxed">
               <p>
-                Tranfu（望船夫）是一个致力于 AI 产品深度实践的工作坊。我们不仅关注最终的产品交付，更关注在构建过程中形成的思维模型、Prompt 技能和工程闭环。
+                Tranfu（望船夫）是一个致力于 AI 产品深度实践的工作坊。我们不仅关注最终的产品交付，更关注在构建过程中形成的思维模型、提示词技能和工程闭环。
               </p>
               <p>
                 在这个网站上，你看到的不只是漂亮的 Demo，还有真实的决策记录。我们会公开那些甚至还没有结果的尝试，因为产品构建的真实感恰恰隐藏在这些“断片”的过程里。
@@ -43,7 +43,7 @@ export const AboutPage = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-[32px] serif-heading font-bold text-tx-primary mb-6">Build in Public 的中国叙事</h2>
+            <h2 className="text-[32px] serif-heading font-bold text-tx-primary mb-6">公开构建的中国叙事</h2>
             <div className="space-y-6 text-tx-secondary leading-relaxed">
               <p>
                 我们相信，“准备好了再展示”会过滤掉 90% 有价值的信息。真正的共鸣和信任，来自于对他人在处理复杂问题、面对不确定性、甚至在遭遇失败时的真实观察。
@@ -91,13 +91,13 @@ export const AboutPage = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 mb-16">
             {[
-              { label: '小红书', sub: 'RED', color: 'hover:text-[#ff2442]' },
-              { label: '抖音', sub: 'DOUYIN', color: 'hover:text-[#fe2c55]' },
-              { label: 'Bilibili', sub: 'B站', color: 'hover:text-[#00aeec]' },
-              { label: '知乎', sub: 'ZHIHU', color: 'hover:text-[#0084ff]' },
-              { label: 'X', sub: 'TWITTER', color: 'hover:text-tx-primary' },
-              { label: 'Github', sub: 'REPO', color: 'hover:text-tx-primary' },
-              { label: '私域社群', sub: 'WECHAT', color: 'hover:text-[#07c160]' },
+              { label: '小红书', sub: '生活记录', color: 'hover:text-[#ff2442]' },
+              { label: '抖音', sub: '短视频', color: 'hover:text-[#fe2c55]' },
+              { label: '哔哩哔哩', sub: '视频内容', color: 'hover:text-[#00aeec]' },
+              { label: '知乎', sub: '问答讨论', color: 'hover:text-[#0084ff]' },
+              { label: 'X', sub: '动态更新', color: 'hover:text-tx-primary' },
+              { label: 'GitHub', sub: '代码仓库', color: 'hover:text-tx-primary' },
+              { label: '私域社群', sub: '微信交流', color: 'hover:text-[#07c160]' },
             ].map((social) => (
               <a 
                 key={social.label}

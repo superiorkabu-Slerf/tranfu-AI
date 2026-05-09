@@ -40,7 +40,7 @@ export const ResourceDetailPage = () => {
         <div className="max-w-[1120px] mx-auto px-6">
           <Link to="/resources" className="inline-flex items-center gap-2 text-xs font-medium text-tx-tertiary hover:text-tx-primary transition-colors mb-8 group">
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-            BACK TO RESOURCES
+            返回资源列表
           </Link>
           
           <div className="max-w-3xl">
@@ -144,7 +144,7 @@ export const ResourceDetailPage = () => {
 
           <aside className="lg:col-span-4 space-y-10">
             <div className="p-10 bg-inverse text-white rounded-radius-card shadow-workshop sticky top-24">
-              <h4 className="mono-label text-[10px] text-tx-quaternary uppercase tracking-widest mb-8">Take Action</h4>
+              <h4 className="mono-label text-[10px] text-tx-quaternary uppercase tracking-widest mb-8">立即操作</h4>
               <div className="space-y-4">
                 <button className="w-full h-14 bg-white text-black font-bold text-sm rounded-radius-button hover:bg-tx-quaternary transition-all flex items-center justify-center gap-2 group">
                   {resource.action || '立即获取'}
@@ -165,7 +165,7 @@ export const ResourceDetailPage = () => {
                 <h4 className="mono-label text-[10px] text-tx-tertiary uppercase tracking-widest">相关来源</h4>
                 {relatedProduct && (
                   <div className="group cursor-pointer" onClick={() => navigate(`/products/${relatedProduct.id}`)}>
-                    <p className="mono-label text-[9px] text-accent-brand uppercase mb-2">Origin Product</p>
+                    <p className="mono-label text-[9px] text-accent-brand uppercase mb-2">来源产品</p>
                     <div className="flex items-center justify-between gap-3">
                       <span className="text-[15px] font-bold text-tx-primary group-hover:text-accent-brand transition-colors leading-tight">{relatedProduct.name}</span>
                       <ExternalLink size={14} className="text-tx-quaternary" />
@@ -174,7 +174,7 @@ export const ResourceDetailPage = () => {
                 )}
                 {relatedInsight && (
                   <div className="group cursor-pointer" onClick={() => navigate(`/insights/${relatedInsight.id}`)}>
-                    <p className="mono-label text-[9px] text-accent-alert uppercase mb-2">Related Insight</p>
+                    <p className="mono-label text-[9px] text-accent-alert uppercase mb-2">相关文章</p>
                     <div className="flex items-center justify-between gap-3">
                       <span className="text-[15px] font-bold text-tx-primary group-hover:text-accent-alert transition-colors leading-tight">{relatedInsight.title}</span>
                       <ExternalLink size={14} className="text-tx-quaternary" />
@@ -183,7 +183,7 @@ export const ResourceDetailPage = () => {
                 )}
                 {relatedLab && (
                   <div className="group cursor-pointer" onClick={() => navigate(`/lab/${relatedLab.id}`)}>
-                    <p className="mono-label text-[9px] text-accent-practical uppercase mb-2">Lab Record</p>
+                    <p className="mono-label text-[9px] text-accent-practical uppercase mb-2">实验记录</p>
                     <div className="flex items-center justify-between gap-3">
                       <span className="text-[15px] font-bold text-tx-primary group-hover:text-accent-practical transition-colors leading-tight">{relatedLab.name}</span>
                       <ExternalLink size={14} className="text-tx-quaternary" />

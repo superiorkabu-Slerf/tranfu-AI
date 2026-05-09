@@ -39,7 +39,7 @@ export const LabDetailPage = () => {
         <div className="max-w-[1120px] mx-auto px-6">
           <Link to="/lab" className="inline-flex items-center gap-2 text-xs font-medium text-tx-tertiary hover:text-tx-primary transition-colors mb-8 group">
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-            BACK TO LAB
+            返回实验室列表
           </Link>
           
           <div className="max-w-3xl">
@@ -48,7 +48,7 @@ export const LabDetailPage = () => {
                 实验项目
               </span>
               <span className="mono-label text-[11px] text-tx-quaternary uppercase tracking-widest">
-                STAGE: {experiment.status}
+                阶段：{experiment.status}
               </span>
             </div>
             <h1 className="text-[48px] serif-heading font-bold text-tx-primary mb-8 tracking-tighter leading-tight">
@@ -70,7 +70,7 @@ export const LabDetailPage = () => {
             {/* Phase */}
             <div className="space-y-6">
               <h3 className="mono-label text-[11px] text-tx-tertiary uppercase tracking-widest pb-4 border-b border-border-subtle flex items-center gap-2">
-                <Activity size={14} /> Current Phase
+                <Activity size={14} /> 当前阶段
               </h3>
               <div className="text-2xl serif-heading font-bold text-tx-primary leading-relaxed">
                 {experiment.phase}
@@ -80,7 +80,7 @@ export const LabDetailPage = () => {
             {/* Process */}
             <div className="space-y-10">
               <h3 className="mono-label text-[11px] text-tx-tertiary uppercase tracking-widest pb-4 border-b border-border-subtle flex items-center gap-2">
-                <Milestone size={14} /> Path Log
+                <Milestone size={14} /> 推进记录
               </h3>
               <div className="space-y-12 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[1px] before:bg-border-subtle">
                 {experiment.process.map((p, idx) => (
@@ -100,7 +100,7 @@ export const LabDetailPage = () => {
             {/* Deliverables */}
             <div className="space-y-8">
               <h3 className="mono-label text-[11px] text-tx-tertiary uppercase tracking-widest pb-4 border-b border-border-subtle flex items-center gap-2">
-                <Layout size={14} /> Lab Outputs
+                <Layout size={14} /> 实验产出
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {experiment.outputs.map((o, idx) => (
@@ -115,7 +115,7 @@ export const LabDetailPage = () => {
             {/* Pitfalls & Insights */}
             <div className="space-y-8">
               <h3 className="mono-label text-[11px] text-tx-tertiary uppercase tracking-widest pb-4 border-b border-border-subtle flex items-center gap-2">
-                <ShieldAlert size={14} /> Pitfalls & Adjustments
+                <ShieldAlert size={14} /> 踩坑与调整
               </h3>
               <div className="p-8 bg-accent-alert/5 border border-accent-alert/10 rounded-radius-card">
                 <p className="text-base text-tx-secondary italic leading-relaxed">
@@ -127,7 +127,7 @@ export const LabDetailPage = () => {
             {/* Next Steps */}
             <div className="space-y-8">
               <h3 className="mono-label text-[11px] text-tx-tertiary uppercase tracking-widest pb-4 border-b border-border-subtle flex items-center gap-2">
-                <Lightbulb size={14} /> Next Steps
+                <Lightbulb size={14} /> 下一步
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {experiment.nextSteps.map((s, idx) => (
@@ -142,13 +142,13 @@ export const LabDetailPage = () => {
 
           <aside className="lg:col-span-4 space-y-10">
             <div className="p-8 border border-border-subtle rounded-radius-card bg-surface sticky top-24">
-              <h4 className="mono-label text-[10px] text-tx-tertiary uppercase tracking-widest mb-10">Linked Documents</h4>
+              <h4 className="mono-label text-[10px] text-tx-tertiary uppercase tracking-widest mb-10">关联文档</h4>
               
               <div className="space-y-12">
                 {relatedProducts.length > 0 && (
                   <div>
                     <h5 className="mono-label text-[9px] text-tx-quaternary uppercase mb-6 flex items-center gap-2">
-                      <span className="w-1 h-1 bg-accent-brand rounded-full" /> Origin Product
+                      <span className="w-1 h-1 bg-accent-brand rounded-full" /> 来源产品
                     </h5>
                     <div className="space-y-4">
                       {relatedProducts.map(p => (
@@ -164,7 +164,7 @@ export const LabDetailPage = () => {
                 {relatedResources.length > 0 && (
                   <div>
                     <h5 className="mono-label text-[9px] text-tx-quaternary uppercase mb-6 flex items-center gap-2">
-                      <span className="w-1 h-1 bg-accent-alert rounded-full" /> Linked Resources
+                      <span className="w-1 h-1 bg-accent-alert rounded-full" /> 关联资源
                     </h5>
                     <div className="space-y-4">
                       {relatedResources.map(r => (
@@ -180,7 +180,7 @@ export const LabDetailPage = () => {
                 {relatedInsights.length > 0 && (
                   <div>
                     <h5 className="mono-label text-[9px] text-tx-quaternary uppercase mb-6 flex items-center gap-2">
-                      <span className="w-1 h-1 bg-accent-brand rounded-full" /> Related Journal
+                      <span className="w-1 h-1 bg-accent-brand rounded-full" /> 相关文章
                     </h5>
                     <div className="space-y-4">
                       {relatedInsights.map(i => (

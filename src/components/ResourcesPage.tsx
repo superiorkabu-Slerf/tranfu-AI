@@ -21,12 +21,12 @@ export const ResourcesPage = () => {
       {/* Header Section */}
       <section className="pt-24 pb-16 border-b border-border-subtle">
         <div className="max-w-[1120px] mx-auto px-6">
-          <span className="mono-label text-[12px] text-tx-tertiary uppercase mb-4 block">TRANSFU WORKBENCH / RESOURCES</span>
+          <span className="mono-label text-[12px] text-tx-tertiary uppercase mb-4 block">TRANFU 实践台 / 资源</span>
           <h1 className="text-[48px] serif-heading font-bold text-tx-primary mb-6 tracking-tighter">
             拿走工程级、<br />真实的 AI 可复用资源。
           </h1>
           <p className="text-lg text-tx-secondary max-w-2xl leading-relaxed">
-            这里的每个资源（Prompt、组件、研究报告）都来自我们的真实实验项目。你可以将它们作为解决特定工程问题的起点。
+            这里的每个资源（提示词、组件、研究报告）都来自我们的真实实验项目。你可以将它们作为解决特定工程问题的起点。
           </p>
         </div>
       </section>
@@ -35,7 +35,7 @@ export const ResourcesPage = () => {
       <section className="sticky top-[64px] z-30 bg-paper/80 backdrop-blur-md border-b border-border-subtle overflow-x-auto">
         <div className="max-w-[1120px] mx-auto px-6 h-16 flex items-center justify-between gap-8 whitespace-nowrap">
           <div className="flex items-center gap-6">
-            <span className="mono-label text-[11px] text-tx-tertiary uppercase tracking-widest">Type:</span>
+            <span className="mono-label text-[11px] text-tx-tertiary uppercase tracking-widest">类型：</span>
             {['全部', ...RESOURCE_CATEGORIES.map(c => c.name)].map(s => (
               <button
                 key={s}
@@ -91,7 +91,7 @@ export const ResourcesPage = () => {
                 </p>
 
                 <div className="mt-auto pt-4 border-t border-border-subtle flex items-center justify-between">
-                  <span className="text-[11px] font-medium text-tx-primary group-hover:underline underline-offset-4 tracking-wider">TAKE IT</span>
+                  <span className="text-[11px] font-medium text-tx-primary group-hover:underline underline-offset-4 tracking-wider">立即查看</span>
                   <ArrowRight size={14} className="text-tx-quaternary group-hover:text-tx-primary transition-colors" />
                 </div>
               </motion.div>

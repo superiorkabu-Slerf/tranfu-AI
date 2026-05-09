@@ -22,14 +22,14 @@ export const HeroWorkbenchVisual = () => {
             <div className="w-2.5 h-2.5 rounded-full bg-accent-green-dark/30" />
             <div className="w-2.5 h-2.5 rounded-full bg-brand-blue/30" />
           </div>
-          <span className="text-[10px] font-bold text-text-hint uppercase tracking-widest bg-text-title/5 px-2 py-0.5 rounded-full">Practice Workbench</span>
+          <span className="text-[10px] font-bold text-text-hint uppercase tracking-widest bg-text-title/5 px-2 py-0.5 rounded-full">实践工作台</span>
         </div>
 
         <div className="space-y-5">
           <div className="p-4 bg-bg-main/50 rounded-2xl border border-text-title/5">
             <div className="flex justify-between items-center mb-2">
-              <span className="text-xs font-semibold text-text-title">Active AI Agents</span>
-              <span className="text-[10px] text-accent-green-dark bg-accent-green px-2 py-0.5 rounded-full">Running</span>
+              <span className="text-xs font-semibold text-text-title">运行中的 AI 智能体</span>
+              <span className="text-[10px] text-accent-green-dark bg-accent-green px-2 py-0.5 rounded-full">运行中</span>
             </div>
             <div className="flex -space-x-2">
               {[1, 2, 3, 4].map((i) => (
@@ -43,7 +43,7 @@ export const HeroWorkbenchVisual = () => {
 
           <div className="p-4 bg-bg-main/50 rounded-2xl border border-text-title/5">
             <div className="flex justify-between items-center mb-3">
-              <span className="text-xs font-semibold text-text-title">Resource Repository</span>
+              <span className="text-xs font-semibold text-text-title">资源仓</span>
               <div className="flex gap-1">
                 <div className="w-2 h-2 rounded-full bg-brand-blue" />
                 <div className="w-2 h-2 rounded-full bg-accent-orange-dark" />
@@ -54,13 +54,13 @@ export const HeroWorkbenchVisual = () => {
                 <div className="w-4 h-4 text-brand-blue">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
                 </div>
-                <span className="text-[10px] font-medium">Skills</span>
+                <span className="text-[10px] font-medium">技能</span>
               </div>
               <div className="p-2 bg-bg-warm-white rounded-lg border border-text-title/5 flex items-center gap-2">
                 <div className="w-4 h-4 text-accent-orange-dark">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
                 </div>
-                <span className="text-[10px] font-medium">Prompts</span>
+                <span className="text-[10px] font-medium">提示词</span>
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@ export const HeroWorkbenchVisual = () => {
                 className="h-full bg-brand-blue" 
               />
             </div>
-            <span className="text-[10px] font-bold text-text-muted">68% Project ROI</span>
+            <span className="text-[10px] font-bold text-text-muted">68% 项目推进度</span>
           </div>
         </div>
       </motion.div>
@@ -99,8 +99,8 @@ export const HeroWorkbenchVisual = () => {
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 bg-brand-blue-bg rounded-lg flex items-center justify-center text-brand-blue font-bold">A</div>
           <div>
-            <p className="text-[10px] font-bold text-text-title">Agent Logic</p>
-            <p className="text-[9px] text-text-hint">Iterating v2.4</p>
+            <p className="text-[10px] font-bold text-text-title">智能体逻辑</p>
+            <p className="text-[9px] text-text-hint">迭代中 v2.4</p>
           </div>
         </div>
       </motion.div>

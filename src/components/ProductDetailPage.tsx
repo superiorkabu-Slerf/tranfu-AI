@@ -29,7 +29,7 @@ export const ProductDetailPage = () => {
         <div className="max-w-[1120px] mx-auto px-6">
           <Link to="/products" className="inline-flex items-center gap-2 text-xs font-medium text-tx-tertiary hover:text-tx-primary transition-colors mb-8 group">
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-            BACK TO PRODUCTS
+            返回项目列表
           </Link>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -39,7 +39,7 @@ export const ProductDetailPage = () => {
                   {product.status}
                 </span>
                 <span className="mono-label text-[11px] text-tx-quaternary uppercase tracking-widest">
-                  REV: 2.0.4
+                  版本 2.0.4
                 </span>
               </div>
               <h1 className="text-[48px] serif-heading font-bold text-tx-primary mb-6 tracking-tighter leading-tight">
@@ -58,7 +58,7 @@ export const ProductDetailPage = () => {
               </div>
             </div>
             <div className="aspect-[16/10] bg-surface rounded-radius-card overflow-hidden border border-border-subtle">
-              <img src={product.image} alt={product.name} className="w-full h-full object-cover grayscale brightness-95" />
+              <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@ export const ProductDetailPage = () => {
             {/* Resources */}
             <div>
               <div className="flex items-center justify-between mb-8 group cursor-pointer" onClick={() => navigate('/resources')}>
-                <h4 className="mono-label text-xs text-tx-tertiary uppercase tracking-widest border-b border-tx-quaternary pb-1">Related Resources</h4>
+                <h4 className="mono-label text-xs text-tx-tertiary uppercase tracking-widest border-b border-tx-quaternary pb-1">相关资源</h4>
                 <ArrowRight size={14} className="text-tx-quaternary group-hover:text-tx-primary transition-all" />
               </div>
               <div className="space-y-4">
@@ -135,13 +135,13 @@ export const ProductDetailPage = () => {
             {/* Insights */}
             <div>
               <div className="flex items-center justify-between mb-8 group cursor-pointer" onClick={() => navigate('/insights')}>
-                <h4 className="mono-label text-xs text-tx-tertiary uppercase tracking-widest border-b border-tx-quaternary pb-1">Design Insights</h4>
+                <h4 className="mono-label text-xs text-tx-tertiary uppercase tracking-widest border-b border-tx-quaternary pb-1">相关判断</h4>
                 <ArrowRight size={14} className="text-tx-quaternary group-hover:text-tx-primary transition-all" />
               </div>
               <div className="space-y-4">
                 {relatedInsights.map(insight => (
                   <Link key={insight.id} to={`/insights/${insight.id}`} className="flex items-center gap-4 p-4 bg-paper border border-border-subtle rounded-radius-card hover:border-accent-brand transition-colors group">
-                    <img src={insight.image} alt="" className="w-12 h-12 rounded bg-surface object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
+                    <img src={insight.image} alt="" className="w-12 h-12 rounded bg-surface object-cover transition-transform group-hover:scale-105" />
                     <div>
                       <h5 className="text-sm font-bold text-tx-primary leading-tight mb-1 group-hover:text-accent-brand transition-colors">{insight.title}</h5>
                       <span className="mono-label text-[9px] text-tx-tertiary uppercase tracking-widest">{insight.date}</span>
@@ -154,7 +154,7 @@ export const ProductDetailPage = () => {
             {/* Labs */}
             <div>
               <div className="flex items-center justify-between mb-8 group cursor-pointer" onClick={() => navigate('/lab')}>
-                <h4 className="mono-label text-xs text-tx-tertiary uppercase tracking-widest border-b border-tx-quaternary pb-1">Lab Progress</h4>
+                <h4 className="mono-label text-xs text-tx-tertiary uppercase tracking-widest border-b border-tx-quaternary pb-1">实验进展</h4>
                 <ArrowRight size={14} className="text-tx-quaternary group-hover:text-tx-primary transition-all" />
               </div>
               <div className="space-y-4">

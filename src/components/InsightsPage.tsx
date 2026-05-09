@@ -15,7 +15,7 @@ export const InsightsPage = () => {
       {/* Header Section */}
       <section className="pt-24 pb-16 border-b border-border-subtle">
         <div className="max-w-[1120px] mx-auto px-6">
-          <span className="mono-label text-[12px] text-tx-tertiary uppercase mb-4 block">TRANSFU WORKBENCH / INSIGHTS</span>
+          <span className="mono-label text-[12px] text-tx-tertiary uppercase mb-4 block">TRANFU 实践台 / 资讯</span>
           <h1 className="text-[48px] serif-heading font-bold text-tx-primary mb-6 tracking-tighter">
             记录 AI 时代的<br />真实判断。
           </h1>
@@ -28,7 +28,7 @@ export const InsightsPage = () => {
       {/* Categories Filter */}
       <section className="sticky top-[64px] z-30 bg-paper/80 backdrop-blur-md border-b border-border-subtle">
         <div className="max-w-[1120px] mx-auto px-6 h-16 flex items-center gap-8 overflow-x-auto whitespace-nowrap scrollbar-hide">
-          <span className="mono-label text-[11px] text-tx-tertiary uppercase tracking-widest">Column:</span>
+          <span className="mono-label text-[11px] text-tx-tertiary uppercase tracking-widest">栏目：</span>
           {['全部', ...INSIGHT_CATEGORIES.map(c => c.name)].map(s => (
             <button
               key={s}
@@ -64,7 +64,7 @@ export const InsightsPage = () => {
                   <img 
                     src={article.image} 
                     alt={article.title} 
-                    className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" 
                   />
                 </div>
               </div>

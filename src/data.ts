@@ -17,7 +17,7 @@ export const ENTRIES = [
   },
   {
     title: '拿走资源',
-    description: '把已经验证过的 Skill、提示词、流程、记录方式和轻量工具直接拿走。',
+    description: '把已经验证过的技能、提示词、流程、记录方式和轻量工具直接拿走。',
     buttonText: '去拿资源',
     path: '/resources',
     theme: 'orange',
@@ -55,7 +55,7 @@ export const PRODUCTS = [
     ],
     results: '你现在可以先体验一版经过整理的使用入口，看它是否更符合你的使用习惯。',
     link: '#',
-    tags: ['Stable', 'Efficiency'],
+    tags: ['稳定', '效率'],
     image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800',
     relatedResources: [1, 2, 3], // IDs or names of resources
     relatedInsights: [1, 2],
@@ -75,7 +75,7 @@ export const PRODUCTS = [
     ],
     results: '当前可作为轻量入口体验，重点验证的是上手效率和出图反馈。',
     link: '#',
-    tags: ['Creative', 'Visual'],
+    tags: ['创意', '视觉'],
     image: 'https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=800',
   },
   {
@@ -92,7 +92,7 @@ export const PRODUCTS = [
     ],
     results: '当前仍在验证中，适合关注方向、看进展和提前判断是否值得等。',
     link: '#',
-    tags: ['Co-working', 'Content'],
+    tags: ['协作', '内容'],
     image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=800',
   },
   {
@@ -100,12 +100,12 @@ export const PRODUCTS = [
     name: '统一接口研究入口',
     status: '研究中',
     oneLiner: '围绕多模型与多入口的接入方式做统一梳理，目标是减少不同能力之间的切换成本。',
-    description: '我们正在研究如何建立一套更标准化的模型调用层，让开发者和产品经理在验证想法时无需关心底层的 API 琐事。',
+    description: '我们正在研究如何建立一套更标准化的模型调用层，让开发者和产品经理在验证想法时无需关心底层的接口琐事。',
     suitability: '开发者与产品团队。',
-    problems: ['API 门槛高', '多模型切换复杂', '测试环境不统一'],
+    problems: ['接口门槛高', '多模型切换复杂', '测试环境不统一'],
     results: '这是一个偏底层的研究项目，目前以文档和方案评审为主。',
     link: '#',
-    tags: ['Standardization', 'API'],
+    tags: ['标准化', '接口'],
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc51?auto=format&fit=crop&q=80&w=800',
   },
   {
@@ -118,7 +118,7 @@ export const PRODUCTS = [
     problems: ['会后无动作', '决策过程不可溯', '任务分解耗时'],
     results: '正在部分真实场景中测试闭环效率。',
     link: '#',
-    tags: ['Execution', 'Workflow'],
+    tags: ['执行', '流程'],
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800',
   },
   {
@@ -131,15 +131,15 @@ export const PRODUCTS = [
     problems: ['内容同质化严重', '用户粘性低', '难以建立竞争壁垒'],
     results: '记录了我们为何停止该方向的判断逻辑。',
     link: '#',
-    tags: ['Deprioritized', 'Archived'],
+    tags: ['已降级', '已归档'],
     image: 'https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&q=80&w=800',
   }
 ];
 
 export const RESOURCE_CATEGORIES = [
   { name: '全部', desc: '查看所有资源' },
-  { name: 'Skill', desc: '把一件常做的事变得更容易上手' },
-  { name: 'Agent', desc: '把判断和提问流程结构化' },
+  { name: '技能', desc: '把一件常做的事变得更容易上手' },
+  { name: '智能体', desc: '把判断和提问流程结构化' },
   { name: '提示词', desc: '把高频表达固定下来' },
   { name: '任务包', desc: '把一整段执行流程整理好' },
   { name: '方法模板', desc: '把复杂任务拆成能重复使用的结构' },
@@ -149,7 +149,7 @@ export const RESOURCE_CATEGORIES = [
 export const PROBLEM_GROUPS = [
   '先判断值不值得做',
   '先把需求讲清楚',
-  '先把 Prompt 调稳定',
+  '先把提示词调稳定',
   '先把会议和决策理顺',
   '先整理成可复用流程',
 ];
@@ -157,10 +157,10 @@ export const PROBLEM_GROUPS = [
 export const RESOURCES = [
   { 
     id: 1,
-    name: '项目判断 Agent', 
-    type: 'Agent', 
+    name: '项目判断智能体', 
+    type: '智能体', 
     action: '立即体验', 
-    category: 'Agent',
+    category: '智能体',
     maturity: '可直接使用',
     problem_group: '先判断值不值得做',
     oneLiner: '在一个方向真正开做之前，帮你先判断它值不值得做、应该先问什么、风险在哪。',
@@ -185,10 +185,10 @@ export const RESOURCES = [
   },
   { 
     id: 2,
-    name: '写 PRD 的 Skill', 
-    type: 'Skill', 
-    action: '查看 Skill', 
-    category: 'Skill',
+    name: 'PRD 撰写技能', 
+    type: '技能', 
+    action: '查看技能', 
+    category: '技能',
     maturity: '可直接使用',
     problem_group: '先把需求讲清楚',
     oneLiner: '帮任何人更轻松地写出一版结构完整、问题清楚、方便继续沟通的 PRD 初稿。',
@@ -204,7 +204,7 @@ export const RESOURCES = [
       '一版可直接套用的需求骨架',
       '适合继续补充的字段提示'
     ],
-    usage: '先把你当前想解决的问题写出来，再顺着 Skill 给出的结构补目标、用户、流程、范围和边界。先把文档写出来，再去做第二轮细化。',
+    usage: '先把你当前想解决的问题写出来，再顺着这套技能给出的结构补目标、用户、流程、范围和边界。先把文档写出来，再去做第二轮细化。',
     boundaries: [
       '它适合帮你起草，不负责替你判断需求真假',
       '如果输入信息过少，输出也会偏空',
@@ -214,32 +214,32 @@ export const RESOURCES = [
   },
   { 
     id: 3,
-    name: 'Prompt QA Board', 
+    name: '提示词质检看板', 
     type: '方法模板', 
     action: '查看结构', 
     category: '方法模板',
     maturity: '拿去后需自行调整',
-    problem_group: '先把 Prompt 调稳定',
-    oneLiner: '帮你检查一个 Prompt 到底清不清楚、稳不稳定、能不能交给别人继续用。',
-    description: '把 prompt 的目标、版本、修改原因和结果表现放进同一套记录结构里，方便团队持续优化，而不是反复从头试。',
-    suitability: '适合已经在写 Prompt，但总觉得结果忽好忽坏、难以复用的人。',
+    problem_group: '先把提示词调稳定',
+    oneLiner: '帮你检查一个提示词到底清不清楚、稳不稳定、能不能交给别人继续用。',
+    description: '把提示词的目标、版本、修改原因和结果表现放进同一套记录结构里，方便团队持续优化，而不是反复从头试。',
+    suitability: '适合已经在写提示词，但总觉得结果忽好忽坏、难以复用的人。',
     problems: [
-      'Prompt 结果不稳定且难以优化',
+      '提示词结果不稳定且难以优化',
       '多版本迭代混乱，不记得为什么改',
-      'Prompt 难以在团队内有效复用'
+      '提示词难以在团队内有效复用'
     ],
     deliverables: [
-      'Prompt 评审核对表',
-      '结构化 Prompt 管理模板',
+      '提示词评审核对表',
+      '结构化提示词管理模板',
       'QA 记录日志格式'
     ],
-    usage: '你可以用它来评审现有 Prompt，发现信息缺口、表达歧义和不稳定环节。',
+    usage: '你可以用它来评审现有提示词，发现信息缺口、表达歧义和不稳定环节。',
     boundaries: [
-      '它更适合评审和修正，不是自动替你生成最佳 Prompt',
+      '它更适合评审和修正，不是自动替你生成最佳提示词',
       '如果你的目标本身不清楚，再好的评审也只能帮你发现问题',
       '更适合团队协作时统一检查口径'
     ],
-    who: '适合经常写 prompt、改 prompt、协作调 prompt 的团队或个人。'
+    who: '适合经常写提示词、改提示词、协作调提示词的团队或个人。'
   },
   { 
     id: 4,
@@ -285,11 +285,11 @@ export const INSIGHT_CATEGORIES = [
 export const INSIGHTS = [
   { 
     id: 1,
-    title: '为什么我们把 Prompt 评审从“感觉”改成“看板”', 
+    title: '为什么我们把提示词评审从“感觉”改成“看板”', 
     date: '2024.03.15', 
     category: '方法总结',
-    oneLiner: 'Prompt 写得不稳，不一定是模型问题，很多时候是输入结构和检查方式的问题。',
-    summary: '我们一度认为 Prompt 的好坏全靠模型悟性。后来发现，如果评审流程不透明、版本不追踪，优化就成了盲打。这篇总结了我们建立看板的判断逻辑。',
+    oneLiner: '提示词写得不稳，不一定是模型问题，很多时候是输入结构和检查方式的问题。',
+    summary: '我们一度认为提示词的好坏全靠模型悟性。后来发现，如果评审流程不透明、版本不追踪，优化就成了盲打。这篇总结了我们建立看板的判断逻辑。',
     relatedResources: [3],
     relatedProducts: [3],
     relatedLab: [2],
@@ -347,7 +347,7 @@ export const EXPERIMENTS = [
       '一条对应方法记录'
     ],
     process: [
-      { title: '入口收拢', desc: '先收入口、看重复 and 混乱点' },
+      { title: '入口收拢', desc: '先收入口、看重复和混乱点' },
       { title: '目标重排', desc: '开始把入口按使用目标重排' },
       { title: '状态提示', desc: '补充状态提示，降低第一次判断成本' },
       { title: '顺序测试', desc: '继续测试不同入口顺序对使用意愿的影响' }
@@ -366,8 +366,8 @@ export const EXPERIMENTS = [
     id: 2,
     name: '会议记忆链路实验',
     status: '进行中',
-    motivation: '单次会议摘要很快会失效，我们真正想解决的是决策、判断 and 后续动作怎么在多轮讨论里不丢。',
-    phase: '已跑通基础整理流程，正在补“决策变更” and “后续追踪”的衔接。',
+    motivation: '单次会议摘要很快会失效，我们真正想解决的是决策、判断和后续动作怎么在多轮讨论里不丢。',
+    phase: '已跑通基础整理流程，正在补“决策变更”和“后续追踪”的衔接。',
     recentUpdate: '05.07 / 会议记忆链路增加了“决策变化”标注，避免后续只看到结论看不到变化原因。',
     outputs: [
       '一套会议记忆整理结构',
@@ -379,7 +379,7 @@ export const EXPERIMENTS = [
       { title: '结构拆解', desc: '开始把纪要拆成议题、判断、结论、后续动作' },
       { title: '关联建立', desc: '继续补多轮会议之间的关联关系' }
     ],
-    pitfalls: '一开始我们以为“总结得更好”就够了，后来发现真正的问题不是语言组织，而是上下文记忆 and 后续追踪。',
+    pitfalls: '一开始我们以为“总结得更好”就够了，后来发现真正的问题不是语言组织，而是上下文记忆和后续追踪。',
     nextSteps: [
       '补多轮会议之间的议题关联',
       '补责任人与后续动作的衔接字段',
@@ -394,10 +394,10 @@ export const EXPERIMENTS = [
     name: '项目判断结构实验',
     status: '进行中',
     motivation: '很多方向不是做不出来，而是一开始就没判断清楚值不值得做。这个实验想把前期判断拆成更稳定的提问结构。',
-    phase: '已形成第一版判断框架，正在补边界情况 and 反例验证。',
+    phase: '已形成第一版判断框架，正在补边界情况和反例验证。',
     recentUpdate: '05.06 / 项目判断结构补了两条反例，用来测试在信息不足时是否会给出误导性建议。',
     outputs: [
-      '项目判断 Agent',
+      '项目判断智能体',
       '相关提问结构',
       '一篇阶段观察记录'
     ],
@@ -453,5 +453,5 @@ export const FAQS = [
   { question: '这里和普通 AI 资讯站有什么不同？', answer: '这里的内容不是为了追热点而组织，而是围绕真实项目推进形成的。重点不是“今天发生了什么”，而是“这件事值不值得做、怎么做、做完沉淀了什么”。' },
   { question: '我不懂 AI，也可以直接用你们的产品吗？', answer: '可以。产品页会尽量少讲术语，多讲它能帮你解决什么问题。如果现在没有现成产品，也可以提交需求进入共建筛选。' },
   { question: '如果没有现成产品，我接下来该怎么办？', answer: '你可以通过需求共建入口描述自己的问题。我们会筛选适合的题目继续沟通，部分题目会进入免费共建或公开实验。' },
-  { question: '网站里的内容是不是都来自你们团队自己做的项目？', answer: '第一版是。我们优先公开团队自己做出来、做过、改过、放弃过的内容，而不是靠外部资讯 and 别人案例把页面填满。' },
+  { question: '网站里的内容是不是都来自你们团队自己做的项目？', answer: '第一版是。我们优先公开团队自己做出来、做过、改过、放弃过的内容，而不是靠外部资讯和别人案例把页面填满。' },
 ];

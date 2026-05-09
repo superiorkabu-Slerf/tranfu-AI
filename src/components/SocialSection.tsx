@@ -16,7 +16,7 @@ export const SocialSection = () => {
               <MessageSquare size={20} />
             </div>
             <div className="text-left">
-              <p className="text-xs font-bold text-text-title">WeChat Group</p>
+              <p className="text-xs font-bold text-text-title">微信群</p>
               <p className="text-[10px] text-text-hint">加入私域连接</p>
             </div>
           </a>
@@ -26,7 +26,7 @@ export const SocialSection = () => {
               <Twitter size={20} />
             </div>
             <div className="text-left">
-              <p className="text-xs font-bold text-text-title">Twitter / X</p>
+              <p className="text-xs font-bold text-text-title">X 平台</p>
               <p className="text-[10px] text-text-hint">日常随想与进展</p>
             </div>
           </a>
@@ -36,7 +36,7 @@ export const SocialSection = () => {
               <Mail size={20} />
             </div>
             <div className="text-left">
-              <p className="text-xs font-bold text-text-title">Newsletter</p>
+              <p className="text-xs font-bold text-text-title">周报订阅</p>
               <p className="text-[10px] text-text-hint">每周深度复盘</p>
             </div>
           </a>

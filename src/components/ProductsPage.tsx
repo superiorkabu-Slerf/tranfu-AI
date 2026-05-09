@@ -21,7 +21,7 @@ export const ProductsPage = () => {
       {/* Header Section */}
       <section className="pt-24 pb-16 border-b border-border-subtle">
         <div className="max-w-[1120px] mx-auto px-6">
-          <span className="mono-label text-[12px] text-tx-tertiary uppercase mb-4 block">TRANSFU WORKBENCH / PRODUCTS</span>
+          <span className="mono-label text-[12px] text-tx-tertiary uppercase mb-4 block">TRANFU 实践台 / 产品</span>
           <h1 className="text-[48px] serif-heading font-bold text-tx-primary mb-6 tracking-tighter">
             我们正在真实构建的<br />AI 产品实验室
           </h1>
@@ -35,7 +35,7 @@ export const ProductsPage = () => {
       <section className="sticky top-[64px] z-30 bg-paper/80 backdrop-blur-md border-b border-border-subtle overflow-x-auto">
         <div className="max-w-[1120px] mx-auto px-6 h-16 flex items-center justify-between gap-8 whitespace-nowrap">
           <div className="flex items-center gap-6">
-            <span className="mono-label text-[11px] text-tx-tertiary uppercase tracking-widest">Filter:</span>
+            <span className="mono-label text-[11px] text-tx-tertiary uppercase tracking-widest">筛选：</span>
             {['全部', ...PRODUCT_STATUSES].map(s => (
               <button
                 key={s}
@@ -79,7 +79,7 @@ export const ProductsPage = () => {
                 onClick={() => navigate(`/products/${product.id}`)}
               >
                 <div className="aspect-[16/10] bg-surface rounded-radius-card overflow-hidden border border-border-subtle group-hover:border-border-strong transition-all mb-6">
-                  <img src={product.image} alt={product.name} className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" />
+                  <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" />
                 </div>
                 
                 <div>

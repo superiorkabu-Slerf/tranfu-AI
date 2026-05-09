@@ -8,7 +8,7 @@ export const CoBuildPage = () => {
       {/* Header Section */}
       <section className="pt-24 pb-16 border-b border-border-subtle">
         <div className="max-w-[1120px] mx-auto px-6">
-          <span className="mono-label text-[12px] text-tx-tertiary uppercase mb-4 block">TRANSFU WORKBENCH / CO-BUILD</span>
+          <span className="mono-label text-[12px] text-tx-tertiary uppercase mb-4 block">TRANFU 实践台 / 需求共建</span>
           <h1 className="text-[48px] serif-heading font-bold text-tx-primary mb-6 tracking-tighter">
             没有现成的工具入口？<br />让我们一起构建它。
           </h1>
@@ -67,7 +67,7 @@ export const CoBuildPage = () => {
               <div className="space-y-3">
                 <div className="flex justify-between items-baseline">
                   <label className="text-sm font-bold text-tx-primary">1. 具体要解决什么工程问题？</label>
-                  <span className="text-[10px] mono-label text-tx-quaternary uppercase">Required</span>
+                  <span className="text-[10px] mono-label text-tx-quaternary uppercase">必填</span>
                 </div>
                 <textarea 
                   rows={4}
@@ -79,7 +79,7 @@ export const CoBuildPage = () => {
               <div className="space-y-3">
                 <div className="flex justify-between items-baseline">
                   <label className="text-sm font-bold text-tx-primary">2. 目前是如何尝试解决的？</label>
-                  <span className="text-[10px] mono-label text-tx-quaternary uppercase">Optional</span>
+                  <span className="text-[10px] mono-label text-tx-quaternary uppercase">选填</span>
                 </div>
                 <textarea 
                   rows={3}
@@ -91,7 +91,7 @@ export const CoBuildPage = () => {
               <div className="space-y-3">
                 <div className="flex justify-between items-baseline">
                   <label className="text-sm font-bold text-tx-primary">3. 联系方式（如微信号）</label>
-                  <span className="text-[10px] mono-label text-tx-quaternary uppercase">Required</span>
+                  <span className="text-[10px] mono-label text-tx-quaternary uppercase">必填</span>
                 </div>
                 <input 
                   type="text"

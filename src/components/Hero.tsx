@@ -13,7 +13,7 @@ export const Hero = () => {
           className="max-w-4xl"
         >
           <span className="mono-label text-[12px] text-tx-tertiary uppercase mb-6 block">
-            TRANFU / AI Product Practice Workbench
+            TRANFU / AI 产品实践站
           </span>
           
           <h1 className="text-[48px] md:text-[64px] leading-[1.05] serif-heading font-bold text-tx-primary mb-8 tracking-tighter">
@@ -24,7 +24,7 @@ export const Hero = () => {
           <div className="mb-10 inline-flex items-center gap-3 px-4 py-2 border border-border-subtle rounded-[4px] bg-paper shadow-sm">
             <span className="w-2 h-2 rounded-full bg-accent-practical terminal-cursor" />
             <span className="mono-label text-[11px] text-tx-secondary uppercase">
-               3 experiments running  ·  Last update: 2h ago  ·  7 resources available
+               3 个实验进行中 · 最近更新：2 小时前 · 7 个资源可用
             </span>
           </div>
           

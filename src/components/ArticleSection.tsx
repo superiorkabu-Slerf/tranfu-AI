@@ -13,7 +13,7 @@ export const ArticleSection = ({ onNavigate, onSelectInsight }: {
         <div className="text-center max-w-4xl mx-auto mb-32">
           <h2 className="text-sm font-bold text-accent-purple-dark uppercase tracking-[0.4em] mb-10 flex items-center justify-center gap-4">
             <span className="w-12 h-px bg-accent-purple-dark" />
-            Insights / 真实判断
+            资讯 / 真实判断
             <span className="w-12 h-px bg-accent-purple-dark" />
           </h2>
           <h3 className="text-5xl md:text-8xl font-serif font-bold text-text-title tracking-tighter leading-[0.95] mb-12">
@@ -47,7 +47,7 @@ export const ArticleSection = ({ onNavigate, onSelectInsight }: {
                 {article.oneLiner || article.summary}
               </p>
               <div className="flex items-center gap-4 text-sm font-bold text-text-title group-hover:gap-6 transition-all">
-                Read Entry <ArrowRight size={18} />
+                阅读全文 <ArrowRight size={18} />
               </div>
             </motion.div>
           ))}

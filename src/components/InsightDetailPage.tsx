@@ -29,7 +29,7 @@ export const InsightDetailPage = () => {
         <div className="max-w-[1120px] mx-auto px-6">
           <Link to="/insights" className="inline-flex items-center gap-2 text-xs font-medium text-tx-tertiary hover:text-tx-primary transition-colors mb-8 group">
             <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
-            BACK TO INSIGHTS
+            返回资讯列表
           </Link>
           
           <div className="max-w-3xl">
@@ -46,7 +46,7 @@ export const InsightDetailPage = () => {
             </h1>
             
             <div className="p-8 bg-surface border-l-4 border-accent-brand rounded-r-radius-card">
-              <p className="text-sm font-bold text-tx-tertiary uppercase mono-label mb-3">ABSTRACT</p>
+              <p className="text-sm font-bold text-tx-tertiary uppercase mono-label mb-3">摘要</p>
               <p className="text-lg text-tx-secondary italic leading-relaxed">
                 “{article.summary}”
               </p>
@@ -62,7 +62,7 @@ export const InsightDetailPage = () => {
           <div className="lg:col-span-8">
             <div className="prose prose-sm md:prose-base max-w-none text-tx-secondary leading-[1.8] space-y-10">
               <div className="aspect-video bg-surface rounded-radius-card overflow-hidden mb-12 border border-border-subtle">
-                <img src={article.image} alt="" className="w-full h-full object-cover grayscale opacity-80" />
+                <img src={article.image} alt="" className="w-full h-full object-cover" />
               </div>
               
               <p>
@@ -79,18 +79,18 @@ export const InsightDetailPage = () => {
               </div>
               
               <p>
-                如果你对该判断背后的技术实现细节感兴趣，可以查看下方的关联资源或实验记录，那里有更原始的代码与 Prompts。
+                如果你对该判断背后的技术实现细节感兴趣，可以查看下方的关联资源或实验记录，那里有更原始的代码与提示词。
               </p>
             </div>
 
             <div className="mt-20 pt-10 border-t border-border-subtle flex items-center justify-between">
               <div className="flex gap-6">
                 <button className="flex items-center gap-2 text-xs font-bold text-tx-tertiary hover:text-tx-primary transition-colors">
-                  <Share2 size={16} /> SHARE
+                  <Share2 size={16} /> 分享
                 </button>
               </div>
               <button onClick={() => navigate('/lab')} className="mono-label text-[11px] text-accent-brand uppercase tracking-widest hover:underline underline-offset-4">
-                Watch Development Progress →
+                查看实验进展 →
               </button>
             </div>
           </div>
@@ -98,12 +98,12 @@ export const InsightDetailPage = () => {
           {/* Sidebar Area: Linked Entities */}
           <aside className="lg:col-span-4 space-y-12">
             <div>
-              <h4 className="mono-label text-[10px] text-tx-tertiary uppercase tracking-[0.2em] mb-8 pb-2 border-b border-border-subtle">Linked Assets</h4>
+              <h4 className="mono-label text-[10px] text-tx-tertiary uppercase tracking-[0.2em] mb-8 pb-2 border-b border-border-subtle">关联内容</h4>
               <div className="space-y-6">
                 {matchedProducts.map(p => (
                   <div key={p.id} className="group cursor-pointer" onClick={() => navigate(`/products/${p.id}`)}>
                     <div className="flex items-center gap-2 mb-2 text-accent-brand mono-label text-[9px] uppercase">
-                      Origin Product <ArrowUpRight size={10} />
+                      来源产品 <ArrowUpRight size={10} />
                     </div>
                     <h5 className="text-[15px] font-bold text-tx-primary group-hover:text-accent-brand transition-colors leading-snug">{p.name}</h5>
                   </div>
@@ -112,7 +112,7 @@ export const InsightDetailPage = () => {
                 {matchedResources.map(r => (
                   <div key={r.id} className="group cursor-pointer" onClick={() => navigate(`/resources/${r.id}`)}>
                     <div className="flex items-center gap-2 mb-2 text-accent-alert mono-label text-[9px] uppercase">
-                      Reusable Resource <ArrowUpRight size={10} />
+                      可复用资源 <ArrowUpRight size={10} />
                     </div>
                     <h5 className="text-[15px] font-bold text-tx-primary group-hover:text-accent-alert transition-colors leading-snug">{r.name}</h5>
                   </div>
@@ -121,7 +121,7 @@ export const InsightDetailPage = () => {
                 {matchedLab.map(l => (
                   <div key={l.id} className="group cursor-pointer" onClick={() => navigate(`/lab/${l.id}`)}>
                     <div className="flex items-center gap-2 mb-2 text-accent-practical mono-label text-[9px] uppercase">
-                      Lab Record <ArrowUpRight size={10} />
+                      实验记录 <ArrowUpRight size={10} />
                     </div>
                     <h5 className="text-[15px] font-bold text-tx-primary group-hover:text-accent-practical transition-colors leading-snug">{l.name}</h5>
                   </div>
@@ -130,7 +130,7 @@ export const InsightDetailPage = () => {
             </div>
 
             <div className="p-8 bg-surface rounded-radius-card border border-border-subtle">
-              <h4 className="mono-label text-[10px] text-tx-tertiary uppercase mb-4 tracking-widest">ABOUT JUDGMENT</h4>
+              <h4 className="mono-label text-[10px] text-tx-tertiary uppercase mb-4 tracking-widest">关于判断</h4>
               <p className="text-xs text-tx-tertiary leading-relaxed">
                 TRANSFU 的所有资讯内容均首发于我们的内部实践周报。我们不提供二手的行业摘要，只提供基于真实构建的一手判断。
               </p>
@@ -152,7 +152,7 @@ export const InsightDetailPage = () => {
             {INSIGHTS.filter(i => i.id !== Number(id)).slice(0, 2).map(article => (
               <Link key={article.id} to={`/insights/${article.id}`} className="flex gap-6 items-center p-6 bg-paper border border-border-subtle rounded-radius-card hover:border-border-strong group transition-all">
                 <div className="w-24 h-24 flex-shrink-0 bg-surface rounded-lg overflow-hidden border border-border-subtle">
-                  <img src={article.image} alt="" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
+                  <img src={article.image} alt="" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
                 </div>
                 <div>
                   <span className="mono-label text-[10px] text-tx-tertiary uppercase mb-2 block">{article.category}</span>

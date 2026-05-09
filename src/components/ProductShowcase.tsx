@@ -14,7 +14,7 @@ export const ProductShowcase = () => {
       <div className="mb-16">
         <div className="flex items-center gap-3 mb-2">
           <h2 className="text-[32px] serif-heading font-bold text-tx-primary">在做的东西</h2>
-          <span className="mono-label text-[11px] text-tx-quaternary pt-2">/ INTERNAL BUILD</span>
+          <span className="mono-label text-[11px] text-tx-quaternary pt-2">/ 在做项目</span>
         </div>
         <p className="text-tx-tertiary text-base">有的能用了，有的还在修，有的可能明天就砍掉。</p>
       </div>
@@ -32,11 +32,11 @@ export const ProductShowcase = () => {
             <img 
               src={featured.image} 
               alt={featured.name} 
-              className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" 
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]" 
             />
             {/* Status Sticker */}
             <div className="status-sticker">
-              {featured.status === '进行中' ? 'LIVE TESTING' : featured.status.toUpperCase()}
+              {featured.status === '进行中' ? '正在测试' : featured.status}
             </div>
           </div>
           <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4">
@@ -57,7 +57,7 @@ export const ProductShowcase = () => {
               </p>
             </div>
             <div className="text-tx-tertiary group-hover:text-tx-primary transition-colors flex items-center gap-2 font-medium">
-              See Project <ArrowRight size={18} />
+              查看项目 <ArrowRight size={18} />
             </div>
           </div>
         </motion.div>
